@@ -37,6 +37,43 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Add padding for fixed header */
+  }
+  
+  /* Smooth Scroll Performance */
+  * {
+    scroll-margin-top: 80px; /* Add margin for fixed header */
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-light);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
   }
   
   body {
@@ -138,15 +175,16 @@
   }
 
   .whatsapp-float {
-    @apply sticky bottom-8;
+    @apply fixed bottom-8 right-8;
     z-index: 40;
-    margin-left: calc(100% - 70px);
   }
 
   .whatsapp-float a {
     @apply flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-[var(--whatsapp)] text-white shadow-lg;
     animation: whatsappPulse 2s ease-in-out infinite;
     transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .whatsapp-float svg {
@@ -298,13 +336,13 @@
     transform: translateY(0);
   }
   25% {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
   }
   50% {
     transform: translateY(0);
   }
   75% {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
   }
 }
 
@@ -313,7 +351,7 @@
     transform: translateY(0) translateZ(0);
   }
   50% {
-    transform: translateY(-10px) translateZ(10px);
+    transform: translateY(-5px) translateZ(5px);
   }
 }
 
@@ -322,13 +360,13 @@
     transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   }
   25% {
-    transform: translateZ(15px) rotateX(8deg) rotateY(8deg);
+    transform: translateZ(8px) rotateX(4deg) rotateY(4deg);
   }
   50% {
     transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   }
   75% {
-    transform: translateZ(-8px) rotateX(-8deg) rotateY(-8deg);
+    transform: translateZ(-4px) rotateX(-4deg) rotateY(-4deg);
   }
 }
 
