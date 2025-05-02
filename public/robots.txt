@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /certificate/
+
+# Crawl-delay
+Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml 
+Sitemap: http://emonismail.netlify.app/sitemap.xml 
