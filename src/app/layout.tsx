@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${firaCode.variable} scroll-smooth`}>
       <head>
-        <meta name="google-site-verification" content="hWJa3yp80Hyr—6tTsiSsKYlZv74-v9vM5blGkGS" />
+        <meta name="google-site-verification" content="hWJa3yp80Hyr--6tTsiSsKYIZv74-v9vM5blGkGS9LI" /> 
         <link rel="canonical" href="https://ismailemon.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
