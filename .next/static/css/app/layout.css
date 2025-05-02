@@ -760,6 +760,13 @@ video {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Add padding for fixed header */
+    font-size: 16px; /* Base font size */
+  }
+  
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px; /* Smaller font size for mobile */
+    }
   }
   
   /* Smooth Scroll Performance */
@@ -900,11 +907,24 @@ video {
 }
 .btn {
   border-radius: 0.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 500;
+}
+@media (min-width: 640px) {
+
+  .btn {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 .btn-primary {
   --tw-bg-opacity: 1;
@@ -952,11 +972,19 @@ video {
   }
 }
 .section-title {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 700;
+}
+@media (min-width: 640px) {
+
+  .section-title {
+    margin-bottom: 3rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 @media (min-width: 768px) {
 

@@ -38,6 +38,13 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Add padding for fixed header */
+    font-size: 16px; /* Base font size */
+  }
+  
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px; /* Smaller font size for mobile */
+    }
   }
   
   /* Smooth Scroll Performance */
@@ -106,7 +113,7 @@
   }
   
   .btn {
-    @apply px-6 py-3 rounded-lg font-medium ;
+    @apply px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base;
   }
   
   .btn-primary {
@@ -136,7 +143,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-12;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12;
     transform-style: preserve-3d;
     transform: translateZ(0);
   }
