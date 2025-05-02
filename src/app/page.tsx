@@ -202,7 +202,7 @@ Message: ${formData.message}`.trim()
                   className="text-secondary max-w-lg mb-8 text-lg leading-relaxed"
                   itemProp="description"
                 >
-                  Specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Currently focused on driving business growth through targeted advertising and data-driven strategies at <span itemProp="worksFor">Oasis Outfit || Zii Zii Island</span> in <span itemProp="workLocation">Chattogram, Bangladesh</span>.
+                   I'm a hands-on Digital Operations Manager with a strong focus on software support and system reliability. I work closely with developers to spot and report bugs, making sure everything runs smoothly for users. I also have experience in customer support, digital marketing, SEO, and process automation. I enjoy using data and tools to make things more efficient and help businesses grow.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
