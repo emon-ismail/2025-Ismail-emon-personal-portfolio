@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   creator: 'Mohammad Ismail Emon',
   publisher: 'Mohammad Ismail Emon',
   robots: 'index, follow',
+  verification: {
+    google: 'hWJa3yp80Hyr--6tTsiSsKYIZv74-v9vM5blGkGS9LI',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -63,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${firaCode.variable} scroll-smooth`}>
       <head>
-        <meta name="google-site-verification" content="hWJa3yp80Hyr--6tTsiSsKYIZv74-v9vM5blGkGS9LI" /> 
+
         <link rel="canonical" href="https://ismailemon.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
@@ -89,7 +92,8 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 "addressLocality": "Chattogram",
                 "addressCountry": "Bangladesh"
-              }
+              },
+             
             })
           }}
         />
