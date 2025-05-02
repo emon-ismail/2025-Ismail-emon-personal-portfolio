@@ -1036,10 +1036,10 @@ video {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 .whatsapp-float {
-  position: fixed;
+  position: sticky;
   bottom: 2rem;
-  right: 2rem;
     z-index: 40;
+    margin-left: calc(100% - 70px);
 }
 .whatsapp-float a {
   display: flex;

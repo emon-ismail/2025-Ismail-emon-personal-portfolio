@@ -175,8 +175,9 @@
   }
 
   .whatsapp-float {
-    @apply fixed bottom-8 right-8;
+    @apply sticky bottom-8;
     z-index: 40;
+    margin-left: calc(100% - 70px);
   }
 
   .whatsapp-float a {
