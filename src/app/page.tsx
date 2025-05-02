@@ -182,7 +182,9 @@ Message: ${formData.message}`.trim()
                     sequence={[
                       'Digital Ops Manager',
                       1000,
-                      'Marketing & SEO Specialist',
+                      'Marketing Specialist',
+                      1000,
+                      'SEO Specialist',
                       1000,
                       'Data & Automation Engineer',
                       1000
