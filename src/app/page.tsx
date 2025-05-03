@@ -491,12 +491,12 @@ Message: ${formData.message}`.trim()
                 <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary/20"></div>
                 
                 {/* Education */}
-                <div className="relative mb-32 animate-fade-in">
+                <div className="relative mb-32 animate-fade-in ">
                   <div className="flex items-center justify-center mb-8">
                     <div className="w-4 h-4 rounded-full bg-primary"></div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 md:order-1">
+                    <div className="order-2 p-4 md:order-1 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl">
                       <p className="text-primary font-mono text-sm mb-2 group">
                         <span className="inline-block hover:animate-wave">Education</span>
                       </p>
@@ -518,11 +518,8 @@ Message: ${formData.message}`.trim()
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg flex items-center justify-center">
                           <div className="text-center p-6">
-                            <svg className="w-16 h-16 mx-auto text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                            </svg>
+                          <img src="/iiuclogo.png" alt="IIUC Logo" className="w-16 h-16 mx-auto mb-4" />
+
                             <h4 className="text-xl font-bold text-dark dark:text-light">IIUC</h4>
                             <p className="text-secondary">International Islamic University Chittagong</p>
                           </div>
@@ -539,7 +536,7 @@ Message: ${formData.message}`.trim()
                     <div className="w-4 h-4 rounded-full bg-primary"></div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="order-2">
+                    <div className="order-2 p-2 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl">
                       <div className="flex items-center gap-4 mb-2">
                         <p className="text-primary font-mono text-sm group">
                           <span className="inline-block hover:animate-wave">Featured Project</span>
@@ -608,6 +605,7 @@ Message: ${formData.message}`.trim()
                         </a>
                       </div>
                     </div>
+
                     <div className="order-1">
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg">
@@ -637,7 +635,7 @@ Message: ${formData.message}`.trim()
                     <div className="w-4 h-4 rounded-full bg-primary"></div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 md:order-1">
+                    <div className="order-2 md:order-1 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-2">
                       <p className="text-primary font-mono text-sm mb-2 group">
                         <span className="inline-block hover:animate-wave">Featured Project</span>
                       </p>
@@ -705,7 +703,7 @@ Message: ${formData.message}`.trim()
                     <div className="w-4 h-4 rounded-full bg-primary"></div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="order-2">
+                    <div className="order-2 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-2">
                       <p className="text-primary font-mono text-sm mb-2 group">
                         <span className="inline-block hover:animate-wave">Featured Project</span>
                       </p>
@@ -914,7 +912,7 @@ Message: ${formData.message}`.trim()
               <h2 className="section-title font-display">Currently Learning</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Learning Item 1 */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -935,7 +933,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                 {/* Learning Item 2 */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                <div className="bg-dark-lighter  bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -950,13 +948,13 @@ Message: ${formData.message}`.trim()
                     </div>
                   </div>
                   <div className="w-full bg-dark/20 rounded-full h-2 mb-2">
-                    <div className="bg-primary h-2 rounded-full w-1/2"></div>
+                    <div className="bg-primary h-2 rounded-full w-5/6"></div>
                   </div>
-                  <p className="text-secondary text-sm">50% Complete</p>
+                  <p className="text-secondary text-sm">80% Complete</p>
                 </div>
 
                 {/* Learning Item 3 */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -971,9 +969,9 @@ Message: ${formData.message}`.trim()
                     </div>
                   </div>
                   <div className="w-full bg-dark/20 rounded-full h-2 mb-2">
-                    <div className="bg-primary h-2 rounded-full w-1/3"></div>
+                    <div className="bg-primary h-2 rounded-full w-4/5"></div>
               </div>
-                  <p className="text-secondary text-sm">33% Complete</p>
+                  <p className="text-secondary text-sm">70% Complete</p>
                 </div>
               </div>
             </div>
@@ -989,7 +987,7 @@ Message: ${formData.message}`.trim()
                 <h3 className="text-2xl font-bold text-dark dark:text-light mb-6 font-display">Career Highlights</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                   {/* Front-End Development */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Front-End Development
                     </h4>
@@ -1010,7 +1008,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                   {/* Digital Marketing */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Digital Marketing
                     </h4>
@@ -1031,7 +1029,7 @@ Message: ${formData.message}`.trim()
                   </div>
                   
                   {/* Multitasking & Operations */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Multitasking & Operations
                     </h4>
@@ -1052,7 +1050,7 @@ Message: ${formData.message}`.trim()
                   </div>
 
                   {/* Business Venture */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Business Venture
                     </h4>
@@ -1079,7 +1077,7 @@ Message: ${formData.message}`.trim()
                 <h3 className="text-2xl font-bold text-dark dark:text-light mb-6 font-display">Competition Highlights</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* STEAM Olympiad */}
-                  <div className="bg-dark-lighter p-6 rounded-lg relative overflow-hidden group">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg relative overflow-hidden group">
                     <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full"></div>
                     <div className="relative">
                       <div className="flex items-center gap-4 mb-4">
@@ -1108,7 +1106,7 @@ Message: ${formData.message}`.trim()
                   </div>
 
                   {/* NASA Space Apps */}
-                  <div className="bg-dark-lighter p-6 rounded-lg relative overflow-hidden group">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg relative overflow-hidden group">
                     <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full"></div>
                     <div className="relative">
                       <div className="flex items-center gap-4 mb-4">
@@ -1143,7 +1141,7 @@ Message: ${formData.message}`.trim()
                 <h3 className="text-2xl font-bold text-dark dark:text-light mb-6 font-display">Major Achievements</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                   {/* Front-End Development */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Front-End Development
                     </h4>
@@ -1164,7 +1162,7 @@ Message: ${formData.message}`.trim()
                   </div>
                   
                   {/* Digital Marketing */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Digital Marketing
                     </h4>
@@ -1185,7 +1183,7 @@ Message: ${formData.message}`.trim()
                   </div>
                   
                   {/* Multitasking & Operations */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Multitasking & Operations
                     </h4>
@@ -1206,7 +1204,7 @@ Message: ${formData.message}`.trim()
                   </div>
 
                   {/* Business Venture */}
-                  <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
+                  <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
                       Business Venture
                     </h4>
@@ -1243,7 +1241,7 @@ Message: ${formData.message}`.trim()
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Total Reach */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1261,7 +1259,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                 {/* Total Impressions */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1280,7 +1278,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                 {/* Total Clicks */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1298,7 +1296,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                 {/* Total Ad Spend */}
-                <div className="bg-dark-lighter p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1319,7 +1317,7 @@ Message: ${formData.message}`.trim()
               {/* Additional Metrics */}
               <div className="mt-8 grid md:grid-cols-2 gap-8">
                 {/* Performance Metrics */}
-                <div className="bg-dark-lighter p-6 rounded-lg">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg">
                   <h3 className="text-xl font-bold text-dark dark:text-light mb-4">Key Performance Metrics</h3>
                   <div className="space-y-4">
                     <div>
@@ -1353,7 +1351,7 @@ Message: ${formData.message}`.trim()
                 </div>
 
                 {/* Campaign Highlights */}
-                <div className="bg-dark-lighter p-6 rounded-lg">
+                <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg">
                   <h3 className="text-xl font-bold text-dark dark:text-light mb-4">Campaign Highlights</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -1380,12 +1378,12 @@ Message: ${formData.message}`.trim()
         </article>
 
         {/* Contact Section */}
-        <article id="contact" className="pt-16 md:pt-24 pb-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80">
+        <article id="contact" className="pt-16 md:pt-24 pb-12 bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80">
           <div className="container">
             <h2 className="section-title font-display">Get In Touch</h2>
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
+                <div className=" p-3 space-y-6 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl">
                   <p className="text-secondary text-lg leading-relaxed group">
                     <span className="inline-block hover:animate-wave">I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</span>
                   </p>
