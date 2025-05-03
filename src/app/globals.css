@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --primary: #6366f1;  /* Indigo */
-  --primary-dark: #4f46e5;
-  --primary-light: #818cf8;
-  --secondary: #10b981;  /* Emerald */
-  --secondary-dark: #059669;
-  --secondary-light: #34d399;
-  --dark: #0f172a;  /* Darker Slate */
+  --primary: #14b8a6;       /* Teal */
+  --primary-dark: #0f766e;
+  --primary-light: #5eead4;
+  --secondary: #64748b;      /* Slate Blue */
+  --secondary-dark: #475569;
+  --secondary-light: #cbd5e1;
+  --dark: #0f172a;
   --dark-lighter: #1e293b;
   --light: #f8fafc;
   --light-darker: #e2e8f0;
-  --bg-light: #f1f5f9;  /* Slightly warmer light background */
-  --bg-dark: #0f172a;   /* Rich dark background */
-  --whatsapp: #25D366;  /* WhatsApp green */
+  --bg-light: #f1f5f9;
+  --bg-dark: #0f172a;
+  --whatsapp: #25D366;
 }
 
 .dark {
-  --primary: #818cf8;  /* Lighter Indigo */
-  --primary-dark: #6366f1;
-  --primary-light: #a5b4fc;
-  --secondary: #34d399;  /* Lighter Emerald */
-  --secondary-dark: #10b981;
-  --secondary-light: #6ee7b7;
-  --dark: #0f172a;  /* Darker Slate */
+  --primary: #5eead4;       /* Lighter Teal */
+  --primary-dark: #14b8a6;
+  --primary-light: #99f6e4;
+  --secondary: #cbd5e1;      /* Lighter Slate Blue */
+  --secondary-dark: #64748b;
+  --secondary-light: #f1f5f9;
+  --dark: #0f172a;
   --dark-lighter: #1e293b;
   --light: #f1f5f9;
   --light-darker: #e2e8f0;
@@ -274,6 +274,10 @@
 
   .certificate-modal.fullscreen .certificate-image {
     max-height: 100vh;
+  }
+
+  .no-bottom-padding {
+    @apply pb-0 mb-0;
   }
 } 
 
