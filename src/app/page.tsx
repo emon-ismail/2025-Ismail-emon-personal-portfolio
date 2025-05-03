@@ -9,6 +9,7 @@ import emailjs from '@emailjs/browser'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { TypeAnimation } from 'react-type-animation'
+import { FaBehance, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -210,7 +211,7 @@ Message: ${formData.message}`.trim()
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="flex gap-4"
                 >
-                  <a href="#contact" className="btn btn-primary">Get in touch</a>
+                  <a href="#contact" className="btn btn-primary text-dark">Get in touch</a>
                   <a href="#projects" className="btn btn-outline">View Projects</a>
                 </motion.div>
               </div>
@@ -264,8 +265,8 @@ Message: ${formData.message}`.trim()
                   With a Bachelor's degree in Computer Science & Engineering from International Islamic University Chittagong, I bring a structured, problem-solving approach to software development and technical troubleshooting.
                 </p>
                 <div className="flex gap-4 mt-4">
-                  <a href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download CV</a>
-                  <a href="https://www.linkedin.com/in/ismailemon" target="_blank" className="btn btn-outline">Connect on LinkedIn</a>
+                  <a href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-dark">Download CV</a>
+                  <a href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/" target="_blank" className="btn btn-outline">Connect on LinkedIn</a>
                 </div>
               </div>
               {/* Right: Images */}
@@ -593,16 +594,16 @@ Message: ${formData.message}`.trim()
                         <li className="group"><span className="inline-block hover:animate-wave">Daisy UI</span></li>
                       </ul>
                       <div className="flex gap-4 mt-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
+                        <a href="https://quran-for-ummah.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                           </svg>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
+                        {/* <a href="https://quran-for-ummah.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                           </svg>
-                        </a>
+                        </a> */}
                       </div>
                     </div>
 
@@ -669,16 +670,16 @@ Message: ${formData.message}`.trim()
                         <li className="group"><span className="inline-block hover:animate-wave">Payment API</span></li>
                       </ul>
                       <div className="flex gap-4 mt-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
+                        <a href="https://new-abacus-academy.web.app/" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                           </svg>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
+                        {/* <a href="#" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                           </svg>
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                     <div className="order-1 md:order-2">
@@ -730,11 +731,11 @@ Message: ${formData.message}`.trim()
                         </div>
                       </div>
                       <ul className="flex flex-wrap gap-4 text-secondary text-sm">
-                        <li className="group"><span className="inline-block hover:animate-wave">React</span></li>
-                        <li className="group"><span className="inline-block hover:animate-wave">Next.js</span></li>
-                        <li className="group"><span className="inline-block hover:animate-wave">TypeScript</span></li>
-                        <li className="group"><span className="inline-block hover:animate-wave">Tailwind CSS</span></li>
-                        <li className="group"><span className="inline-block hover:animate-wave">Framer Motion</span></li>
+                        <li className="group"><span className="inline-block hover:animate-wave">HTML</span></li>
+                        <li className="group"><span className="inline-block hover:animate-wave">CSS</span></li>
+                        <li className="group"><span className="inline-block hover:animate-wave">JavaScript</span></li>
+                        <li className="group"><span className="inline-block hover:animate-wave">Bootstrap 5</span></li>
+                        
                       </ul>
                       <div className="flex gap-4 mt-4">
                         <a href="https://ziiziiisland.com/" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
@@ -742,11 +743,11 @@ Message: ${formData.message}`.trim()
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                           </svg>
                         </a>
-                        <a href="https://github.com/yourusername/ziiziiisland" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
+                        {/* <a href="https://github.com/yourusername/ziiziiisland" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                           </svg>
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                     <div className="order-1">
@@ -872,7 +873,7 @@ Message: ${formData.message}`.trim()
                 {/* Stat 1 */}
                 <div className="text-center group animate-fade-in">
                   <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
-                    5+
+                    3+
                   </div>
                   <div className="text-secondary">Years Experience</div>
                 </div>
@@ -880,7 +881,7 @@ Message: ${formData.message}`.trim()
                 {/* Stat 2 */}
                 <div className="text-center group animate-fade-in">
                   <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
-                    50+
+                    70+
                   </div>
                   <div className="text-secondary">Projects Completed</div>
                 </div>
@@ -888,7 +889,7 @@ Message: ${formData.message}`.trim()
                 {/* Stat 3 */}
                 <div className="text-center group animate-fade-in">
                   <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
-                    30+
+                    20+
                   </div>
                   <div className="text-secondary">Happy Clients</div>
                 </div>
@@ -896,7 +897,7 @@ Message: ${formData.message}`.trim()
                 {/* Stat 4 */}
                 <div className="text-center group animate-fade-in">
                   <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
-                    1000+
+                    100+
                   </div>
                   <div className="text-secondary">GitHub Contributions</div>
                 </div>
@@ -1394,6 +1395,34 @@ Message: ${formData.message}`.trim()
                     >
                       <EnvelopeIcon className="w-5 h-5 mr-3" />
                       <span className="inline-block hover:animate-wave">emonismail44@gmail.com</span>
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/" target="_blank"
+                      className="flex items-center text-secondary hover:text-primary transition-colors group"
+                    >
+                     <FaLinkedin className="w-5 h-5 mr-3 text-blue-600" />
+                      <span className="inline-block hover:animate-wave">Linkdin</span>
+                    </a>
+                    <a 
+                      href="https://www.facebook.com/ismail.emon.180" target="_blank"
+                      className="flex items-center text-secondary hover:text-primary transition-colors group"
+                    >
+                    <FaFacebook className="w-5 h-5 mr-3 text-blue-600" />
+                      <span className="inline-block hover:animate-wave">Facebook</span>
+                    </a>
+                    <a 
+                      href="https://github.com/emon-ismail" target="_blank"
+                      className="flex items-center text-secondary hover:text-primary transition-colors group"
+                    >
+                    <FaGithub className="w-5 h-5 mr-3 text-blue-600" />
+                      <span className="inline-block hover:animate-wave">Github</span>
+                    </a>
+                    <a 
+                      href="https://www.behance.net/emon44" target="_blank"
+                      className="flex items-center text-secondary hover:text-primary transition-colors group"
+                    >
+                    <FaBehance className="w-5 h-5 mr-3 text-blue-600" />
+                      <span className="inline-block hover:animate-wave">Behance</span>
                     </a>
                     <a 
                       href="tel:+8801628692798" 
