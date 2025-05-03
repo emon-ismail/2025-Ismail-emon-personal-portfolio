@@ -1287,8 +1287,39 @@ Message: ${formData.message}`.trim()
                 </div>
               </div>
             </div>
+
+ 
           </div>
+           {/* Facebook Ads Image Showcase */}
+           <section className="container my-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <img
+      src="/Analytics-1.png"
+      alt="Facebook Ad 1"
+      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+    />
+    <img
+      src="/Analytics-2.png"
+      alt="Facebook Ad 2"
+      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+    />
+    <img
+      src="/Analytics-3.png"
+      alt="Facebook Ad 3"
+      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+    />
+    <img
+      src="/Analytics-4.jpg"
+      alt="Facebook Ad 4"
+      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+    />
+  </div>
+</section>
+  
+
+
         </article>
+        
 
         {/* Contact Section */}
         <article id="contact" className="pt-16 md:pt-24 pb-12 bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80">
