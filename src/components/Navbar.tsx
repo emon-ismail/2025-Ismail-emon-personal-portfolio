@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="sticky top-0 z-50 flex justify-center w-full px-4">
+    <div className="sticky  top-0 z-50 flex justify-center w-full px-4">
       <nav className={`w-full max-w-[95%] md:max-w-7xl rounded-lg md:rounded-2xl transition-all duration-300 ${
         scrolled 
           ? 'bg-[#042f2e]/95 dark:bg-[#042f2e]/95 backdrop-blur-md shadow-lg' 
@@ -43,6 +43,8 @@ export default function Navbar() {
               <NavLink href="#about">About</NavLink>
               <NavLink href="#experience">Experience</NavLink>
               <NavLink href="#projects">Projects</NavLink>
+              <NavLink href="#certificate">Certificate</NavLink>
+              <NavLink href="#ads">Meta Ads</NavLink>
               <NavLink href="#contact">Contact</NavLink>
               <ThemeToggle />
             </div>
@@ -74,6 +76,8 @@ export default function Navbar() {
               <MobileNavLink href="#about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
               <MobileNavLink href="#experience" onClick={() => setIsOpen(false)}>Experience</MobileNavLink>
               <MobileNavLink href="#projects" onClick={() => setIsOpen(false)}>Projects</MobileNavLink>
+              <MobileNavLink href="#certificate" onClick={() => setIsOpen(false)}>Certificate</MobileNavLink>
+              <MobileNavLink href="#ads" onClick={() => setIsOpen(false)}>Meta Ads</MobileNavLink>
               <MobileNavLink href="#contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
               <div className="pt-4">
                 <ThemeToggle />

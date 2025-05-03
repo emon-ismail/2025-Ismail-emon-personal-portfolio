@@ -147,7 +147,7 @@ Message: ${formData.message}`.trim()
 
   return (
     <div className="bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300 font-sans">
-      <header>
+      <header className='sticky  top-0 z-50 flex justify-center w-full px-4'>
         <Navbar />
       </header>
       <main>
@@ -771,7 +771,7 @@ Message: ${formData.message}`.trim()
         </article>
 
         {/* Certificates Section */}
-        <article className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
+        <article id="certificate" className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
           <div className="container">
             <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl">
               <h2 className="section-title font-display">Certificates & Recognition</h2>
@@ -1143,7 +1143,7 @@ Message: ${formData.message}`.trim()
         </article>
 
         {/* Facebook Ads Performance Section */}
-        <article className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
+        <article id="ads" className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
           <div className="container">
             <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl">
               <div className="text-center mb-12">
