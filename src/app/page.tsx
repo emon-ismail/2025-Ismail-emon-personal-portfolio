@@ -249,55 +249,35 @@ Message: ${formData.message}`.trim()
 
 
         {/* About Section */}
-        <article id="about" className="section bg-light/50 dark:bg-dark/50 py-20">
+        <article id="about" className="section bg-light/50 dark:bg-dark/50 py-20 animate-fade-in">
           <div className="container">
-            <h2 className="section-title font-display">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <p className="text-secondary mb-4 text-lg leading-relaxed animate-fade-in">
-                  I'm a Digital Marketing Specialist and Front-End Developer with expertise in Facebook Ads, Social Media Management, and E-commerce Growth. Currently working at Oasis Outfit || Zii Zii Island, where I manage digital marketing operations and develop the front-end for ZiiZii Island's website.
+            <h2 className="section-title font-display mb-8">About Me</h2>
+            <div className="grid md:grid-cols-2 gap-8 items-stretch">
+              {/* Left: About Content Card */}
+              <div className="bg-white/80 dark:bg-dark-lighter/80 rounded-xl shadow-lg p-8 border-l-4 border-primary">
+                <h3 className="text-2xl font-bold text-primary mb-2">Mohammad Ismail Emon</h3>
+                <h4 className="text-lg font-semibold text-secondary mb-4">Front-End Developer & Software Support Specialist</h4>
+                <p className="text-secondary mb-4 text-lg leading-relaxed">
+                  I'm a Front-End Developer and Software Support Specialist with a strong foundation in <span className="font-semibold text-primary">React, HTML, CSS, and JavaScript</span>, and hands-on experience in identifying and resolving front-end bugs, optimizing website performance, and delivering smooth user experiences. Currently at <span className="font-semibold text-primary">ZiiZii Island (Oasis Outfit)</span>, I lead front-end development and provide technical support for web-based platforms, ensuring stability and usability across devices.
                 </p>
-                <p className="text-secondary mb-4 text-lg leading-relaxed animate-fade-in [animation-delay:200ms]">
-                  With a Bachelor's degree in Computer Science & Engineering from International Islamic University Chittagong, I combine technical knowledge with marketing acumen to deliver comprehensive digital solutions.
+                <p className="text-secondary mb-4 text-lg leading-relaxed">
+                  With a Bachelor's degree in Computer Science & Engineering from International Islamic University Chittagong, I bring a structured, problem-solving approach to software development and technical troubleshooting.
                 </p>
-                <p className="text-secondary text-lg leading-relaxed animate-fade-in [animation-delay:400ms]">
-                  Here are some key areas I specialize in:
-                </p>
-                <ul className="grid grid-cols-2 gap-2 mt-4 text-secondary">
-                  <li className="flex items-center group">
-                    <span className="text-primary mr-2">▹</span>
-                    <span className="inline-block">Facebook Ads & Pixel</span>
-                  </li>
-                  <li className="flex items-center group">
-                    <span className="text-primary mr-2">▹</span>
-                    <span className="inline-block">Social Media Growth</span>
-                  </li>
-                  <li className="flex items-center group">
-                    <span className="text-primary mr-2">▹</span>
-                    <span className="inline-block">E-commerce Marketing</span>
-                  </li>
-                  <li className="flex items-center group">
-                    <span className="text-primary mr-2">▹</span>
-                    <span className="inline-block">Analytics & Tracking</span>
-                  </li>
-                </ul>
+              
+               
+                <div className="flex gap-4 mt-4">
+                  <a href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download CV</a>
+                  <a href="https://www.linkedin.com/in/ismailemon" target="_blank" className="btn btn-outline">Connect on LinkedIn</a>
+                </div>
               </div>
-              <div className="relative group">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="w-full h-80 rounded-lg overflow-hidden shadow-lg relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent z-10"></div>
-                  <Image 
-                    src="/emon-image.jpg" 
-                    alt="Mohammad Ismail Emon" 
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 border border-primary/10 rounded-lg z-20"></div>
-                </motion.div>
+              {/* Right: Images */}
+              <div className="flex gap-4 h-full">
+                <div className="flex-1 relative rounded-lg overflow-hidden shadow-lg min-h-[300px]">
+                  <Image src="/emon-image.jpg" alt="..." fill className="object-cover" />
+                </div>
+                <div className="flex-1 relative rounded-lg overflow-hidden shadow-lg min-h-[300px]">
+                  <Image src="/emon-image-1.jpg" alt="..." fill className="object-cover" />
+                </div>
               </div>
             </div>
           </div>

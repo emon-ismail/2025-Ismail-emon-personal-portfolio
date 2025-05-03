@@ -1,9 +1,26 @@
 # Mohammad Ismail Emon - Personal Portfolio
 
-A modern, responsive portfolio website showcasing my expertise as a Digital Operations Manager and Marketing Specialist. Built with Next.js, TypeScript, and Tailwind CSS.
+A modern, responsive portfolio website showcasing my expertise as a Digital Operations Manager, Front-End Developer, and Software Support Specialist. Built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Live Demo
 [https://emonismail.netlify.app](https://emonismail.netlify.app)
+
+## About
+I'm a Front-End Developer and Software Support Specialist with a strong foundation in React, HTML, CSS, and JavaScript, and hands-on experience in identifying and resolving front-end bugs, optimizing website performance, and delivering smooth user experiences. Currently at ZiiZii Island (Oasis Outfit), I lead front-end development and provide technical support for web-based platforms, ensuring stability and usability across devices.
+
+With a Bachelor's degree in Computer Science & Engineering from International Islamic University Chittagong, I bring a structured, problem-solving approach to software development and technical troubleshooting.
+
+In addition to my technical role, I support Facebook Pixel setup, analytics tracking, and basic marketing integrations, offering well-rounded support to e-commerce operations.
+
+## Key Skills & Expertise
+- React.js, HTML5, CSS3, JavaScript
+- Front-End Bug Detection & Resolution
+- Software & Technical Support for Web Applications
+- Website Performance Optimization
+- Cross-Browser & Mobile Compatibility
+- Version Control (Git)
+- Facebook Pixel & Tracking Integration
+- E-commerce Platform Maintenance
 
 ## Features
 
@@ -22,9 +39,9 @@ A modern, responsive portfolio website showcasing my expertise as a Digital Oper
 ## Tech Stack
 
 - **Framework**: Next.js 14
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
+- **Language**: TypeScript, JavaScript
+- **Styling**: Tailwind CSS, CSS Modules
+- **Animation**: Framer Motion
 - **Icons**: Hero Icons
 - **Form Handling**: EmailJS
 - **Deployment**: Netlify
@@ -32,22 +49,23 @@ A modern, responsive portfolio website showcasing my expertise as a Digital Oper
 ## Getting Started
 
 1. Clone the repository:
-```bash
-git clone https://github.com/emon-ismail/2025-Ismail-emon-personal-portfolio
-cd portfolio
-```
-
+   ```bash
+   git clone https://github.com/ismailemon/portfolio.git
+   cd portfolio
+   ```
 2. Install dependencies:
-```bash
-npm install
-```
-
+   ```bash
+   npm install
+   ```
 3. Run the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   npm run export
+   ```
 
 ## Project Structure
 
@@ -76,9 +94,7 @@ public/                  # Static assets
 
 ## Deployment
 
-The website is deployed on Netlify with the following build settings:
-- Build command: `npm run build`
-- Publish directory: `out`
+- The site is statically exported to the `out` directory and can be deployed to Netlify or any static hosting provider.
 
 ## SEO Features
 
@@ -100,4 +116,4 @@ The website is deployed on Netlify with the following build settings:
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
