@@ -1272,9 +1272,6 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
-.mr-5 {
-  margin-right: 1.25rem;
-}
 .block {
   display: block;
 }
@@ -1323,11 +1320,11 @@ video {
 .h-\[600px\] {
   height: 600px;
 }
-.h-full {
-  height: 100%;
-}
 .h-auto {
   height: auto;
+}
+.h-full {
+  height: 100%;
 }
 .max-h-\[500px\] {
   max-height: 500px;
@@ -1340,12 +1337,6 @@ video {
 }
 .w-0\.5 {
   width: 0.125rem;
-}
-.w-1\/2 {
-  width: 50%;
-}
-.w-1\/3 {
-  width: 33.333333%;
 }
 .w-12 {
   width: 3rem;
@@ -1368,6 +1359,9 @@ video {
 .w-5 {
   width: 1.25rem;
 }
+.w-5\/6 {
+  width: 83.333333%;
+}
 .w-6 {
   width: 1.5rem;
 }
@@ -1376,15 +1370,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-3\/5 {
-  width: 60%;
-}
-.w-1\/6 {
-  width: 16.666667%;
-}
-.w-5\/6 {
-  width: 83.333333%;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -1655,6 +1640,9 @@ video {
 .p-2 {
   padding: 0.5rem;
 }
+.p-3 {
+  padding: 0.75rem;
+}
 .p-4 {
   padding: 1rem;
 }
@@ -1663,9 +1651,6 @@ video {
 }
 .p-8 {
   padding: 2rem;
-}
-.p-3 {
-  padding: 0.75rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -1691,8 +1676,8 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.pb-0 {
-  padding-bottom: 0px;
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .pb-16 {
   padding-bottom: 4rem;
@@ -1705,15 +1690,6 @@ video {
 }
 .pt-4 {
   padding-top: 1rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-.pb-12 {
-  padding-bottom: 3rem;
 }
 .text-center {
   text-align: center;
@@ -1766,6 +1742,10 @@ video {
 .tracking-wide {
   letter-spacing: 0.025em;
 }
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
 .text-dark {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity, 1));
@@ -1796,10 +1776,6 @@ video {
 .text-teal-400 {
   --tw-text-opacity: 1;
   color: rgb(45 212 191 / var(--tw-text-opacity, 1));
-}
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 .opacity-0 {
   opacity: 0;
@@ -2283,17 +2259,6 @@ video {
   background-color: var(--dark);
 }
 
-@media (min-width: 640px) {
-
-  .sm\:h-72 {
-    height: 18rem;
-  }
-
-  .sm\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (min-width: 768px) {
 
   .md\:order-1 {
@@ -2361,10 +2326,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-
-  .lg\:h-80 {
-    height: 20rem;
-  }
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));

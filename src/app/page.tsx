@@ -213,6 +213,7 @@ Message: ${formData.message}`.trim()
                 >
                   <a href="#contact" className="btn btn-primary text-dark">Get in touch</a>
                   <a href="#projects" className="btn btn-outline">View Projects</a>
+                  <a href="http://dx.doi.org/10.13140/RG.2.2.30114.95689" target="_blank" className="btn btn-primary text-dark">Thesis Paper</a>
                 </motion.div>
               </div>
               
@@ -267,6 +268,7 @@ Message: ${formData.message}`.trim()
                 <div className="flex gap-4 mt-4">
                   <a href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-dark">Download CV</a>
                   <a href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/" target="_blank" className="btn btn-outline">Connect on LinkedIn</a>
+                  {/* <a href="https://drive.google.com/file/d/1fEPi7t-KWwJEXDY9B7kiQH8WEQdrpHhu/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-dark">Thesis</a> */}
                 </div>
               </div>
               {/* Right: Images */}
@@ -478,9 +480,46 @@ Message: ${formData.message}`.trim()
                 </ul>
               </div>
               {/* Add more experience cards as needed */}
+              <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl group animate-scale-in">
+                <h3 className="text-xl font-bold text-dark dark:text-light mb-1 font-display">
+                Founder & Entrepreneur
+                </h3>
+                <p className="text-primary font-mono text-sm mb-2 group">
+                  <span className="inline-block hover:animate-wave">  Organic Fruitopia • June 2023 - Present</span>
+                </p>
+                <ul className="text-secondary space-y-2">
+                  <li className="flex items-start group">
+                    <span className="text-primary mr-2 mt-1">▹</span>
+                    <span className="inline-block hover:animate-wave">Founded a seasonal mango business selling 3+ tons of premium-quality mango directly to consumers.</span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-primary mr-2 mt-1">▹</span>
+                    <span className="inline-block hover:animate-wave">Generated BDT 40,000 profit in one season by optimizing sourcing, pricing, and marketing.
+                    </span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-primary mr-2 mt-1">▹</span>
+                    <span className="inline-block hover:animate-wave">Managed end-to-end operations: procurement, logistics, customer service, and digital engagement.
+                    </span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-primary mr-2 mt-1">▹</span>
+                    <span className="inline-block hover:animate-wave">Executed targeted social media campaigns to attract health-conscious customers.</span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-primary mr-2 mt-1">▹</span>
+                    <span className="inline-block hover:animate-wave">Gained hands-on experience in entrepreneurship, e-commerce, and supply chain management.</span>
+                  </li>
+                </ul>
+              </div>
+              
             </div>
           </div>
+
+
+          
         </article>
+       
 
         {/* Projects Section */}
         <article id="projects" className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
@@ -511,6 +550,17 @@ Message: ${formData.message}`.trim()
                         <p className="text-secondary mb-2">
                           <span className="inline-block hover:animate-wave">Year of Graduation: Nov 2019 – Feb 2024</span>
                         </p>
+
+                        <p className="text-primary font-mono text-sm mb-2 group">
+                        <span className="inline-block hover:animate-wave">Thesis</span>
+                      </p>
+                      <h6 className="text-xl font-semibold text-dark dark:text-light mb-4 font-display group">
+                        <span className="inline-block hover:animate-wave">"The Role of Machine Learning in Increased Cyberbullying Claims"</span>
+                      </h6>
+                      {/* <a className="text-primary font-mono text-sm mb-2 group">
+                        <span className="inline-block hover:animate-wave">Thesis</span>
+                      </a> */}
+                      <a className='text-primary font-mono' href="http://dx.doi.org/10.13140/RG.2.2.30114.95689" target='_blank'>DOI:10.13140/RG.2.2.30114.95689</a>
                         
                       </div>
                     </div>
