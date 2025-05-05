@@ -26,7 +26,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: 'Mohammad Ismail Emon - Digital Ops Manager & Marketing Specialist',
   description:
-    'Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
+    'Mohammad Ismail Emon-Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development',
   keywords: [
     'Digital Marketing',
     'Facebook Ads',
@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     'E-commerce Marketing',
     'Social Media Growth',
     'Marketing Automation',
+    'ismail emon',
+    'emon ismail',
+
   ],
   authors: [{ name: 'Mohammad Ismail Emon' }],
   creator: 'Mohammad Ismail Emon',
