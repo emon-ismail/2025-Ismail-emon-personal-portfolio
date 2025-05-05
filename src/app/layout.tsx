@@ -2,6 +2,7 @@ import { Inter, Poppins, Fira_Code } from 'next/font/google'
 import './globals.css'
 import type { Metadata } from 'next'
 import WhatsAppButton from './components/WhatsAppButton'
+import ScrollToTopButton from './ScrollToTopButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,8 +25,17 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: 'Mohammad Ismail Emon - Digital Ops Manager & Marketing Specialist',
-  description: 'Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
-  keywords: ['Digital Marketing', 'Facebook Ads', 'SEO', 'Front-end Development', 'E-commerce Marketing', 'Social Media Growth', 'Marketing Automation'],
+  description:
+    'Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
+  keywords: [
+    'Digital Marketing',
+    'Facebook Ads',
+    'SEO',
+    'Front-end Development',
+    'E-commerce Marketing',
+    'Social Media Growth',
+    'Marketing Automation',
+  ],
   authors: [{ name: 'Mohammad Ismail Emon' }],
   creator: 'Mohammad Ismail Emon',
   publisher: 'Mohammad Ismail Emon',
@@ -39,7 +49,8 @@ export const metadata: Metadata = {
     url: 'https://yourdomain.com',
     siteName: 'Mohammad Ismail Emon Portfolio',
     title: 'Mohammad Ismail Emon - Digital Marketing & Development Expert',
-    description: 'Digital Operations Manager with expertise in Facebook Ads, Social Media Growth, and E-commerce Marketing',
+    description:
+      'Digital Operations Manager with expertise in Facebook Ads, Social Media Growth, and E-commerce Marketing',
     images: [
       {
         url: '/ismail-emon.jpg',
@@ -52,7 +63,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mohammad Ismail Emon - Digital Marketing Specialist',
-    description: 'Digital Operations Manager specializing in Facebook Ads and Marketing Automation',
+    description:
+      'Digital Operations Manager specializing in Facebook Ads and Marketing Automation',
     images: ['/ismail-emon.jpg'],
     creator: '@yourtwitterhandle',
   },
@@ -64,45 +76,56 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} ${firaCode.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} ${firaCode.variable} scroll-smooth`}
+    >
       <head>
-        <meta name="google-site-verification" content="4hTFfooTNRBLALh642EB5qMdkSpjOrrn4fPIf0ZhjEk" />
+        <meta
+          name="google-site-verification"
+          content="4hTFfooTNRBLALh642EB5qMdkSpjOrrn4fPIf0ZhjEk"
+        />
         <link rel="canonical" href="https://ismailemon.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/images/ismail-emon-logo.png" type="image/png" />
+        <link
+          rel="icon"
+          href="/images/ismail-emon-logo.png"
+          type="image/png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Mohammad Ismail Emon",
-              "url": "https://ismailemon.com",
-              "image": "https://ismailemon.com/ismail-emon.jpg",
-              "sameAs": [
-                "https://www.linkedin.com/in/ismailemon",
-                "https://github.com/ismailemon"
+              name: 'Mohammad Ismail Emon',
+              url: 'https://ismailemon.com',
+              image: 'https://ismailemon.com/ismail-emon.jpg',
+              sameAs: [
+                'https://www.linkedin.com/in/ismailemon',
+                'https://github.com/ismailemon',
               ],
-              "jobTitle": "Digital Operations Manager",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Oasis Outfit || Zii Zii Island"
+              jobTitle: 'Digital Operations Manager',
+              worksFor: {
+                "@type": 'Organization',
+                name: 'Oasis Outfit || Zii Zii Island',
               },
-              "description": "Digital Operations Manager, Marketing & SEO Specialist with expertise in Facebook Ads and E-commerce Marketing",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chattogram",
-                "addressCountry": "Bangladesh"
+              description:
+                'Digital Operations Manager, Marketing & SEO Specialist with expertise in Facebook Ads and E-commerce Marketing',
+              address: {
+                "@type": 'PostalAddress',
+                addressLocality: 'Chattogram',
+                addressCountry: 'Bangladesh',
               },
-             
-            })
+            }),
           }}
         />
       </head>
       <body>
         {children}
         <WhatsAppButton />
+        <ScrollToTopButton />
       </body>
     </html>
   )
-} 
+}
