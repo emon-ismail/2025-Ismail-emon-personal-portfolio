@@ -27,14 +27,14 @@ export default function Navbar() {
       <nav className={`w-full max-w-[95%] md:max-w-7xl rounded-lg md:rounded-2xl transition-all duration-300 ${
         scrolled 
           ? 'bg-[#042f2e]/95 dark:bg-[#042f2e]/95 backdrop-blur-md shadow-lg' 
-          : 'bg-[#042f2e]/80 dark:bg-[#042f2e]/80 backdrop-blur-sm'
+          : 'bg-[#042f2e]/80 dark:bg-[#5eebd5]/50 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-16">
             <motion.a
               href="#"
               whileHover={{ scale: 1.05 }}
-              className="text-teal-400 font-display text-xl tracking-wide"
+              className="text-white font-display text-xl tracking-wide"
             >
               Emon
             </motion.a>
