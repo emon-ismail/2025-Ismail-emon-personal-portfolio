@@ -1615,27 +1615,6 @@ video {
 .bg-white\/80 {
   background-color: rgb(255 255 255 / 0.8);
 }
-.bg-\[\#fff\]\/95 {
-  background-color: rgb(255 255 255 / 0.95);
-}
-.bg-\[\#042f2e\]\/5 {
-  background-color: rgb(4 47 46 / 0.05);
-}
-.bg-\[\#042f2e\]\/55 {
-  background-color: rgb(4 47 46 / 0.55);
-}
-.bg-teal-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(19 78 74 / var(--tw-bg-opacity, 1));
-}
-.bg-slate-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
-}
-.bg-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
-}
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1806,10 +1785,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity, 1));
 }
-.text-teal-400 {
-  --tw-text-opacity: 1;
-  color: rgb(45 212 191 / var(--tw-text-opacity, 1));
-}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1901,9 +1876,6 @@ video {
 }
 .bg-primary {
   background-color: var(--primary);
-}
-.bg-dark {
-  background-color: var(--dark);
 }
 .bg-light {
   background-color: var(--light);
@@ -2244,6 +2216,10 @@ video {
   background-color: rgb(4 47 46 / 0.95);
 }
 
+.dark\:bg-\[\#5eebd5\]\/50:is(.dark *) {
+  background-color: rgb(94 235 213 / 0.5);
+}
+
 .dark\:bg-dark:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
@@ -2264,26 +2240,6 @@ video {
 .dark\:bg-gray-200:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
-}
-
-.dark\:bg-\[\#5eebd5\]\/80:is(.dark *) {
-  background-color: rgb(94 235 213 / 0.8);
-}
-
-.dark\:bg-\[\#fff\]\/95:is(.dark *) {
-  background-color: rgb(255 255 255 / 0.95);
-}
-
-.dark\:bg-\[\#5eebd5\]\/0:is(.dark *) {
-  background-color: rgb(94 235 213 / 0);
-}
-
-.dark\:bg-\[\#5eebd5\]\/90:is(.dark *) {
-  background-color: rgb(94 235 213 / 0.9);
-}
-
-.dark\:bg-\[\#5eebd5\]\/50:is(.dark *) {
-  background-color: rgb(94 235 213 / 0.5);
 }
 
 .dark\:from-primary\/20:is(.dark *) {

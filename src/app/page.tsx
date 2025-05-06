@@ -910,6 +910,40 @@ Message: ${formData.message}`.trim()
                     </div>
                   </div>
                 </div>
+                {/* fb Certificate */}
+                <div className="group relative overflow-hidden rounded-xl bg-white/80 dark:bg-dark-lighter/80 border-2 border-secondary shadow-2xl hover:shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] transition-shadow duration-300 animate-scale-in">
+                  <div className="relative h-64 w-full flex items-center justify-center">
+                    <img
+                      src="/certificate/fb-ads.jpg"
+                      alt="fb ads Certification"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-lg font-bold text-light">Facebook Ads Certification</h3>
+                        <p className="text-light/80 text-sm">Facebook Ads</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* fb Certificate */}
+                <div className="group relative overflow-hidden rounded-xl bg-white/80 dark:bg-dark-lighter/80 border-2 border-secondary shadow-2xl hover:shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] transition-shadow duration-300 animate-scale-in">
+                  <div className="relative h-64 w-full flex items-center justify-center">
+                    <img
+                      src="/certificate/chemistry-olympiad.jpg"
+                      alt="fb ads Certification"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-lg font-bold text-light">Bangladesh Chemistry Olympiad Certification</h3>
+                        <p className="text-light/80 text-sm">Chemistry Olympiad-Preliminary Round</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
             </div>
           </div>
