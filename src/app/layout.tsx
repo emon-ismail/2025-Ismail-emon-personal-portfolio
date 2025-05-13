@@ -26,7 +26,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: 'Mohammad Ismail Emon - Digital Ops Manager & Marketing Specialist',
   description:
-    'Mohammad Ismail Emon-Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development',
+    'Mohammad Ismail Emon - Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
   keywords: [
     'Digital Marketing',
     'Facebook Ads',
@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     'Marketing Automation',
     'ismail emon',
     'emon ismail',
-
   ],
   authors: [{ name: 'Mohammad Ismail Emon' }],
   creator: 'Mohammad Ismail Emon',
@@ -49,14 +48,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yourdomain.com',
+    url: 'https://emonismail.netlify.app',
     siteName: 'Mohammad Ismail Emon Portfolio',
     title: 'Mohammad Ismail Emon - Digital Marketing & Development Expert',
     description:
-      'Digital Operations Manager with expertise in Facebook Ads, Social Media Growth, and E-commerce Marketing',
+      'Digital Operations Manager with expertise in Facebook Ads, Social Media Growth, and E-commerce Marketing.',
     images: [
       {
-        url: '/ismail-emon.jpg',
+        url: 'https://emonismail.netlify.app/emon-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Mohammad Ismail Emon',
@@ -67,9 +66,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mohammad Ismail Emon - Digital Marketing Specialist',
     description:
-      'Digital Operations Manager specializing in Facebook Ads and Marketing Automation',
-    images: ['/ismail-emon.jpg'],
-    creator: '@yourtwitterhandle',
+      'Digital Operations Manager specializing in Facebook Ads and Marketing Automation.',
+    images: ['https://emonismail.netlify.app/emon-image.jpg'],
+    creator: '@emonismail4', // Change if you have a handle
   },
 }
 
@@ -88,13 +87,11 @@ export default function RootLayout({
           name="google-site-verification"
           content="4hTFfooTNRBLALh642EB5qMdkSpjOrrn4fPIf0ZhjEk"
         />
-        <link rel="canonical" href="https://ismailemon.com" />
+        <link rel="canonical" href="https://emonismail.netlify.app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="/images/ismail-emon-logo.png"
-          type="image/png"
-        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://emonismail.netlify.app/emon-image.jpg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://emonismail.netlify.app/emon-image.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -102,11 +99,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: 'Mohammad Ismail Emon',
-              url: 'https://ismailemon.com',
-              image: 'https://ismailemon.com/ismail-emon.jpg',
+              url: 'https://emonismail.netlify.app',
+              image: 'https://emonismail.netlify.app/emon-image.jpg',
               sameAs: [
-                'https://www.linkedin.com/in/ismailemon',
-                'https://github.com/ismailemon',
+                'https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/',
+                'https://github.com/emon-ismail',
               ],
               jobTitle: 'Digital Operations Manager',
               worksFor: {
@@ -114,7 +111,7 @@ export default function RootLayout({
                 name: 'Oasis Outfit || Zii Zii Island',
               },
               description:
-                'Digital Operations Manager, Marketing & SEO Specialist with expertise in Facebook Ads and E-commerce Marketing',
+                'Digital Operations Manager, Marketing & SEO Specialist with expertise in Facebook Ads and E-commerce Marketing.',
               address: {
                 "@type": 'PostalAddress',
                 addressLocality: 'Chattogram',
