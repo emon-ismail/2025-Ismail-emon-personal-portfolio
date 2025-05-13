@@ -26,7 +26,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: 'Mohammad Ismail Emon | Digital Marketing Expert In Chittagong',
   description:
-    'Mohammad Ismail Emon - Digital Operations Manager specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
+    'Mohammad Ismail Emon - Digital Marketing Expert In Chittagong. Specializing in Facebook Ads, Social Media Growth, and E-commerce Marketing. Expert in digital marketing automation and front-end development.',
   keywords: [
     'Digital Marketing',
     'Facebook Ads',
