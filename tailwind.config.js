@@ -12,6 +12,8 @@ module.exports = {
         sans: ['var(--font-inter)'],
         display: ['var(--font-poppins)'],
         mono: ['var(--font-fira-code)'],
+        poster: ['var(--font-oswald)'],
+        script: ['var(--font-playfair)'],
       },
       colors: {
         primary: '#3b82f6',

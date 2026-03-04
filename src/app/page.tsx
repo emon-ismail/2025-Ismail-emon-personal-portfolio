@@ -1,10 +1,11 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDownIcon, EnvelopeIcon, PhoneIcon, MapPinIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowDownIcon, EnvelopeIcon, PhoneIcon, MapPinIcon, XMarkIcon, AcademicCapIcon, BriefcaseIcon, TrophyIcon } from '@heroicons/react/24/outline'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import emailjs from '@emailjs/browser'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -24,7 +25,7 @@ export default function Home() {
     setMounted(true)
     // Initialize EmailJS
     emailjs.init("ZGVGuwI76m9UvhoWk")
-    
+
     // Test EmailJS initialization
     const testEmailJS = async () => {
       try {
@@ -45,7 +46,7 @@ export default function Home() {
         console.error('EmailJS Test Error:', error)
       }
     }
-    
+
     // Run test after initialization
     setTimeout(testEmailJS, 1000)
   }, [])
@@ -61,7 +62,7 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all required fields', {
         position: 'top-right',
@@ -93,7 +94,7 @@ export default function Home() {
         },
         'ZGVGuwI76m9UvhoWk'
       )
-      
+
       if (response.status === 200) {
         toast.success('Message sent successfully!', {
           position: 'top-right',
@@ -110,20 +111,20 @@ export default function Home() {
       }
     } catch (error) {
       console.error('EmailJS Error Details:', error)
-      
+
       // Fallback to mailto
       const subject = `Contact Form Message from ${formData.name}`
       const body = `
 Name: ${formData.name}
 Email: ${formData.email}
 Message: ${formData.message}`.trim()
-      
+
       // Create mailto link with properly encoded parameters
       const mailtoLink = `mailto:emonismail44@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-      
+
       // Open mail client in same window to prevent duplicate email display
       window.location.href = mailtoLink
-      
+
       toast.info('Opening email client...', {
         position: 'top-right',
         autoClose: 5000,
@@ -152,298 +153,431 @@ Message: ${formData.message}`.trim()
       </header>
       <main>
         {/* Hero Section */}
-        <article className="min-h-screen flex items-center justify-center relative pt-11 md:pt-0 pb-16">
-          <div className="w-full px-4 md:container md:px-6">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-              <div>
-                <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-primary font-mono text-sm tracking-wide mb-4"
-                >
-                  Hi, my name is
-                </motion.p>
-                <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-4xl md:text-7xl font-bold text-dark dark:text-light mb-4 font-display"
-                >
-                  <span itemProp="name">Mohammad Ismail Emon</span>
-                </motion.h1>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-3xl md:text-xl font-bold text-secondary mb-8 font-display"
-                  itemProp="jobTitle"
-                >
-                  <TypeAnimation
-                    sequence={[
-                      'Digital Ops Manager',
-                      1000,
-                      'Marketing Specialist',
-                      1000,
-                      'SEO Specialist',
-                      1000,
-                      'Data & Automation Engineer',
-                      1000
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    repeat={Infinity}
-                    className="text-primary"
-                  />
-                </motion.div>
-                <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-secondary max-w-lg mb-8 text-lg leading-relaxed"
-                  itemProp="description"
-                >
-                   I'm a hands-on Digital Operations Manager with a strong focus on software support and system reliability. I work closely with developers to spot and report bugs, making sure everything runs smoothly for users. I also have experience in customer support, digital marketing, SEO, and process automation. I enjoy using data and tools to make things more efficient and help businesses grow.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="flex gap-4"
-                >
-                  <a href="#contact" className="btn btn-primary text-dark">Get in touch</a>
-                  <a href="#projects" className="btn btn-outline">View Projects</a>
-                  <a href="http://dx.doi.org/10.13140/RG.2.2.30114.95689" target="_blank" className="btn btn-primary text-dark">Thesis Paper</a>
-                </motion.div>
-              </div>
-              
-              {/* Image with modern frame */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="relative"
+        {/* Hero Section - Madison Style Redesign */}
+        <article id="hero" className="min-h-screen relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300 flex items-center justify-center overflow-hidden py-12 md:py-0">
+
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-grid-slate dark:bg-grid-white bg-[size:40px_40px] opacity-10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-50/0 via-slate-50/50 to-slate-50 dark:via-slate-950/50 dark:to-slate-950 opacity-80 pointer-events-none"></div>
+
+          <div className="container px-4 z-10 relative w-full h-full flex flex-col items-center justify-center">
+
+            {/* Desktop: Central Layout Group */}
+            <div className="relative w-full max-w-6xl flex flex-col md:items-center">
+
+              {/* 1. Script Header (Top) */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center md:mb-[-10px] z-30 relative"
               >
-                <div className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent z-10"></div>
-                  <Image 
-                    src="/ismail-emon.jpg" 
-                    alt="Mohammad Ismail Emon" 
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-64 h-64 border-2 border-primary/30 rounded-lg z-20"></div>
-                <div className="absolute -top-4 -left-4 w-32 h-32 border-2 border-primary/20 rounded-full z-20"></div>
+                <h2 className="font-script text-5xl md:text-8xl text-slate-800 dark:text-slate-200 italic relative inline-block drop-shadow-sm">
+                  Hey, there
+                  <svg className="hidden md:block absolute w-24 h-2 -bottom-2 right-0 text-teal-500" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
+                  </svg>
+                </h2>
               </motion.div>
+
+              {/* Main Interaction Area: Text - Image - Text */}
+              <div className="flex flex-col md:flex-row items-center justify-center w-full relative mt-8 md:mt-0 gap-8 md:gap-0">
+
+                {/* 2. Left Big Text (Desktop: Right Aligned to Image, Mobile: Center) */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="z-20 md:mr-[-60px] text-center md:text-right"
+                >
+                  <h1 className="font-poster text-5xl sm:text-6xl md:text-[6.5rem] lg:text-[8rem] leading-[0.85] text-slate-900 dark:text-slate-100 uppercase tracking-tighter drop-shadow-2xl">
+                    MOHAMMAD <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-700 dark:from-teal-300 dark:to-teal-500">
+                      ISMAIL
+                    </span> <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-400 to-teal-600 dark:from-teal-200 dark:to-teal-400">
+                      EMON
+                    </span>
+                  </h1>
+                </motion.div>
+
+                {/* 3. Center Image */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="relative z-10 w-64 sm:w-80 md:w-[420px] aspect-[3/4] shadow-2xl rounded-full border-4 border-white/50 dark:border-slate-800/50 backdrop-blur-sm order-first md:order-none mb-4 md:mb-0"
+                >
+                  {/* Decorative Ring */}
+                  <div className="absolute inset-[-12px] border border-slate-300 dark:border-slate-700 rounded-full z-0 animate-[spin_20s_linear_infinite]"></div>
+
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+                    <Image
+                      src="/ismail-emon.jpg"
+                      alt="Mohammad Ismail Emon"
+                      fill
+                      className="object-cover hover:scale-110 transition-transform duration-700"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+                </motion.div>
+
+                {/* 4. Right Role Text & Buttons (Desktop: Left Aligned to Image, Mobile: Center) */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="z-20 md:ml-[-60px] text-center md:text-left flex flex-col items-center md:items-start w-full md:w-auto mt-4 md:mt-0"
+                >
+                  <h3 className="font-poster text-2xl md:text-4xl lg:text-5xl text-slate-800 dark:text-slate-100 uppercase leading-tight mb-4 md:mb-6 min-h-[4rem] md:min-h-[6rem]">
+                    <TypeAnimation
+                      sequence={[
+                        'Digital Ops Manager', 1500,
+                        'Marketing Automation\n& SEO Engineer', 1500,
+                        'Analytics & Reporting\nSpecialist', 1500,
+                        'National STEAM\nOlympiad Finalist', 1500,
+                        'Software Engineer', 1500,
+                      ]}
+                      wrapper="span"
+                      speed={50}
+                      deletionSpeed={60}
+                      repeat={Infinity}
+                      className="text-teal-600 dark:text-teal-400 whitespace-pre-line"
+                    />
+                  </h3>
+                  <div className="h-1 w-16 bg-teal-500 mb-6 rounded-full hidden md:block"></div>
+                  <p className="font-display text-slate-600 dark:text-slate-400 text-base md:text-lg mb-8 leading-relaxed max-w-xs">
+                    Specialized in <strong className="text-slate-900 dark:text-white">Marketing Automation</strong>, <strong className="text-slate-900 dark:text-white">SEO</strong>, <strong className="text-slate-900 dark:text-white">Analytics</strong> &amp; <strong className="text-slate-900 dark:text-white">Software Engineering</strong>.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a
+                      href="#contact"
+                      className="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-bold shadow-lg shadow-teal-500/20 transition-all hover:-translate-y-1 w-full sm:w-auto display-inline-block text-center"
+                    >
+                      Let's Talk
+                    </a>
+                    <a
+                      href="#projects"
+                      className="px-8 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-full font-bold hover:border-teal-500 transition-all hover:-translate-y-1 w-full sm:w-auto display-inline-block text-center"
+                    >
+                      My Work
+                    </a>
+                  </div>
+                </motion.div>
+
+              </div>
+
             </div>
           </div>
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute bottom-10"
+
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 z-20"
           >
-            <ArrowDownIcon className="h-6 w-6 text-secondary" />
+            <ArrowDownIcon className="w-8 h-8" />
           </motion.div>
         </article>
-      
+
 
 
         {/* About Section */}
-        <article id="about" className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20 animate-fade-in">
-          <div className="container">
-            <h2 className="section-title font-display mb-8">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-stretch">
-              {/* Left: About Content Card */}
-              <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-primary mb-2">Mohammad Ismail Emon</h3>
-                <h4 className="text-lg font-semibold text-secondary mb-4">Front-End Developer & Software Support Specialist</h4>
-                <p className="text-secondary mb-4 text-lg leading-relaxed">
-                  I'm a Front-End Developer and Software Support Specialist with a strong foundation in <span className="font-semibold text-primary">React, HTML, CSS, and JavaScript</span>, and hands-on experience in identifying and resolving front-end bugs, optimizing website performance, and delivering smooth user experiences. Currently at <span className="font-semibold text-primary">ZiiZii Island (Oasis Outfit)</span>, I lead front-end development and provide technical support for web-based platforms, ensuring stability and usability across devices.
+        <article id="about" className="relative py-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
+          {/* Background decoration */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-teal-400/10 dark:bg-teal-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400/10 dark:bg-teal-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+          <div className="container relative z-10 px-4 mx-auto">
+            {/* Section header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <p className="text-teal-600 dark:text-teal-400 font-mono text-sm uppercase tracking-widest mb-2">Get to know me</p>
+              <h2 className="font-poster text-4xl md:text-6xl text-slate-900 dark:text-slate-100 uppercase tracking-tight">About Me</h2>
+              <div className="mx-auto mt-4 w-16 h-1 bg-teal-500 rounded-full" />
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+              {/* LEFT — Image collage */}
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative"
+              >
+                {/* Main big image */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full aspect-[4/5] max-w-sm mx-auto">
+                  <Image src="/emon-image.jpg" alt="Mohammad Ismail Emon" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+                </div>
+                {/* Floating image 2 — bottom right */}
+                <div className="absolute -bottom-6 -right-4 md:-right-8 w-36 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-900">
+                  <Image src="/emon-image-1.jpg" alt="Mohammad Ismail Emon" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                </div>
+                {/* Floating image 3 — top right */}
+                <div className="absolute -top-6 -right-4 md:-right-8 w-32 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-900">
+                  <Image src="/emon-image-3.jpg" alt="Mohammad Ismail Emon" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                </div>
+                {/* Floating stat badge — experience */}
+                <div className="absolute -top-4 -left-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-slate-100 dark:border-slate-700">
+                  <span className="text-3xl font-poster text-teal-500">3+</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300 font-medium leading-tight">Years<br />Experience</span>
+                </div>
+                {/* STEAM badge */}
+                <div className="absolute bottom-20 -left-4 bg-teal-600 text-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2">
+                  <TrophyIcon className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-xs font-bold leading-tight">National STEAM<br />Olympiad Finalist</span>
+                </div>
+              </motion.div>
+
+              {/* RIGHT — Content */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="flex flex-col gap-6"
+              >
+                <div>
+                  <h3 className="font-poster text-3xl md:text-4xl text-slate-900 dark:text-slate-100 uppercase tracking-tight mb-1">
+                    Mohammad Ismail Emon
+                  </h3>
+                  <p className="text-teal-600 dark:text-teal-400 font-semibold text-sm">
+                    Digital Ops Manager · Marketing Automation &amp; SEO Engineer · Analytics Specialist · Software Engineer
+                  </p>
+                </div>
+
+                <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                  I&apos;m a multidisciplinary professional blending <strong className="text-slate-900 dark:text-white">Digital Operations</strong>, <strong className="text-slate-900 dark:text-white">Marketing Automation</strong>, <strong className="text-slate-900 dark:text-white">SEO</strong>, and <strong className="text-slate-900 dark:text-white">Software Engineering</strong>. At <span className="text-teal-600 dark:text-teal-400 font-semibold">Oasis Outfit (ZiiZii Island)</span>, I drive measurable growth through data-driven campaigns, automation systems, and front-end engineering.
                 </p>
-                <p className="text-secondary mb-4 text-lg leading-relaxed">
-                  With a Bachelor's degree in Computer Science & Engineering from International Islamic University Chittagong, I bring a structured, problem-solving approach to software development and technical troubleshooting.
+                <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                  I hold a <strong className="text-slate-900 dark:text-white">BSc in Computer Science &amp; Engineering</strong> from International Islamic University Chittagong (IIUC), and I was recognised as a <strong className="text-slate-900 dark:text-white">National STEAM Olympiad Finalist</strong> (Top 5 Nationally) for my award-winning Quran-For-Ummah platform.
                 </p>
-                <div className="flex gap-4 mt-4">
-                  <a href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-dark">Download CV</a>
-                  <a href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/" target="_blank" className="btn btn-outline">Connect on LinkedIn</a>
-                  {/* <a href="https://drive.google.com/file/d/1fEPi7t-KWwJEXDY9B7kiQH8WEQdrpHhu/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-dark">Thesis</a> */}
+
+                {/* Highlights grid */}
+                <div className="grid grid-cols-2 gap-3 mt-2">
+                  {([
+                    { icon: <MapPinIcon className="w-5 h-5" />, label: 'Location', value: 'Chittagong, Bangladesh' },
+                    { icon: <AcademicCapIcon className="w-5 h-5" />, label: 'Degree', value: 'BSc in CSE — IIUC' },
+                    { icon: <BriefcaseIcon className="w-5 h-5" />, label: 'Company', value: 'Oasis Outfit · ZiiZii Island' },
+                    { icon: <TrophyIcon className="w-5 h-5" />, label: 'Achievement', value: 'STEAM Olympiad Top 5' },
+                  ] as { icon: ReactNode; label: string; value: string }[]).map(({ icon, label, value }) => (
+                    <div key={label} className="bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 hover:border-teal-400 hover:shadow-md transition-all duration-300 group">
+                      <span className="text-teal-500 dark:text-teal-400">{icon}</span>
+                      <p className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-1">{label}</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 leading-snug">{value}</p>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              {/* Right: Images */}
-              <div className="flex gap-4 h-full">
-                <div className="flex-1 relative rounded-lg overflow-hidden shadow-lg min-h-[300px]">
-                  <Image src="/emon-image.jpg" alt="..." fill className="object-cover" />
+
+                {/* Role pills */}
+                <div className="flex flex-wrap gap-2">
+                  {['Digital Ops Manager', 'Marketing Automation', 'SEO Engineer', 'Analytics Specialist', 'Software Engineer', 'STEAM Finalist'].map(role => (
+                    <span key={role} className="px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-700">
+                      {role}
+                    </span>
+                  ))}
                 </div>
-                <div className="flex-1 relative rounded-lg overflow-hidden shadow-lg min-h-[300px]">
-                  <Image src="/emon-image-1.jpg" alt="..." fill className="object-cover" />
+
+                {/* CTA buttons */}
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-bold shadow-lg shadow-teal-500/20 transition-all hover:-translate-y-1"
+                  >
+                    Download CV
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-bold hover:border-teal-500 transition-all hover:-translate-y-1"
+                  >
+                    Connect on LinkedIn
+                  </a>
                 </div>
-              </div>
+              </motion.div>
+
             </div>
           </div>
         </article>
 
         {/* Skills Section */}
-        <article className="section py-20 bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80">
-          <div className="container">
-            <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl">
-              <h2 className="section-title font-display">Skills & Expertise</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-primary mb-4">Front-End Development</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">React & Next.js</span>
-                        <span className="text-primary">90%</span>
-                      </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '90%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">TypeScript</span>
-                        <span className="text-primary">85%</span>
-                      </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '85%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">Tailwind CSS</span>
-                        <span className="text-primary">95%</span>
-                      </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '95%' }}></div>
-                      </div>
-                    </div>
+        <article id="skills" className="relative py-24 overflow-hidden bg-white dark:bg-slate-900 transition-colors duration-300">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-400/5 dark:bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="container relative z-10 px-4 mx-auto">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <p className="text-teal-600 dark:text-teal-400 font-mono text-sm uppercase tracking-widest mb-2 font-semibold">Technical Arsenal</p>
+              <h2 className="font-poster text-4xl md:text-6xl text-slate-900 dark:text-slate-100 uppercase tracking-tight">Skills & Expertise</h2>
+              <div className="mx-auto mt-4 w-16 h-1 bg-teal-500 rounded-full" />
+            </motion.div>
+
+            {/* Core Skills — Bars */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Front-End */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-2xl p-7 hover:shadow-2xl hover:border-teal-500/50 transition-all duration-500 group"
+              >
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-teal-50 dark:bg-teal-900/30 rounded-xl group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
+                    <svg className="w-6 h-6 text-teal-600 dark:text-teal-400 group-hover:text-white transition-colors duration-300 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                   </div>
+                  <h3 className="font-poster text-2xl text-slate-800 dark:text-slate-100 uppercase tracking-tight">Front-End Development</h3>
                 </div>
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-primary mb-4">Marketing Skills</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">Facebook Ads & Pixel</span>
-                        <span className="text-primary">95%</span>
+                  {[
+                    { name: 'React & Next.js', level: 90 },
+                    { name: 'TypeScript', level: 85 },
+                    { name: 'Tailwind CSS', level: 95 },
+                    { name: 'HTML & CSS', level: 95 },
+                  ].map(({ name, level }) => (
+                    <div key={name} className="group/bar">
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wide">{name}</span>
+                        <span className="text-teal-600 dark:text-teal-400 font-bold">{level}%</span>
                       </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '95%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">Social Media Growth</span>
-                        <span className="text-primary">90%</span>
-                      </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '90%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-secondary">E-commerce Marketing</span>
-                        <span className="text-primary">85%</span>
-                      </div>
-                      <div className="h-2 bg-dark-lighter rounded-full">
-                        <div className="h-full bg-primary rounded-full" style={{ width: '85%' }}></div>
+                      <div className="h-2.5 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden border border-slate-200/50 dark:border-slate-600/30">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.5, delay: 0.2, ease: "circOut" }}
+                          className="h-full rounded-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 shadow-[0_0_15px_rgba(20,184,166,0.5)]"
+                        />
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              </div>
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-primary mb-4">Programming & Database</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">JavaScript</span>
+              </motion.div>
+
+              {/* Marketing */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-2xl p-7 hover:shadow-2xl hover:border-teal-500/50 transition-all duration-500 group"
+              >
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-teal-50 dark:bg-teal-900/30 rounded-xl group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
+                    <svg className="w-6 h-6 text-teal-600 dark:text-teal-400 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
                   </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Python</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">PHP</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Java</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">C/C++</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">MySQL</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">MongoDB</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">phpMyAdmin</span>
-                  </div>
+                  <h3 className="font-poster text-2xl text-slate-800 dark:text-slate-100 uppercase tracking-tight">Marketing Automation</h3>
                 </div>
-              </div>
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-primary mb-4">Office & Design Tools</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Microsoft Excel</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Microsoft Word</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">PowerPoint</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Adobe Illustrator</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Canva</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Notion</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Notepad++</span>
-                  </div>
+                <div className="space-y-6">
+                  {[
+                    { name: 'Facebook Ads & Pixel', level: 95 },
+                    { name: 'Social Media Growth', level: 90 },
+                    { name: 'E-commerce Marketing', level: 85 },
+                    { name: 'Lead Generation', level: 88 },
+                  ].map(({ name, level }) => (
+                    <div key={name} className="group/bar">
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wide">{name}</span>
+                        <span className="text-teal-600 dark:text-teal-400 font-bold">{level}%</span>
+                      </div>
+                      <div className="h-2.5 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden border border-slate-200/50 dark:border-slate-600/30">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.5, delay: 0.2, ease: "circOut" }}
+                          className="h-full rounded-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 shadow-[0_0_15px_rgba(20,184,166,0.5)]"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-primary mb-4">Analytics & Ad Management</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Google Analytics (GA4)</span>
+              </motion.div>
+            </div>
+
+            {/* Chip Categories */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Programming & DB',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />,
+                  skills: ['JavaScript', 'Python', 'PHP', 'Java', 'C/C++', 'MySQL', 'MongoDB', 'PostgreSQL']
+                },
+                {
+                  title: 'Analytics & Ads',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />,
+                  skills: ['Google Analytics', 'GA4 & GTM', 'Ads Manager', 'Commerce Manager', 'Pixel Tracking', 'API Integration']
+                },
+                {
+                  title: 'SEO & Growth',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />,
+                  skills: ['On-Page SEO', 'Technical SEO', 'Local SEO', 'Keyword Research', 'Audit Reports', 'Growth Strategy']
+                }
+              ].map((category, idx) => (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-2xl p-6 hover:shadow-xl hover:border-teal-500/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2.5 bg-teal-50 dark:bg-teal-900/30 rounded-lg text-teal-600 dark:text-teal-400">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">{category.icon}</svg>
+                    </div>
+                    <h3 className="font-poster text-xl text-slate-800 dark:text-slate-100 uppercase tracking-tight">{category.title}</h3>
                   </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Google Tag Manager</span>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map(skill => (
+                      <span key={skill} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600/50 hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200 cursor-default">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Facebook Ads Manager</span>
+                </motion.div>
+              ))}
+
+              {/* Office & Design — Full Width Option */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="md:col-span-3 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-2xl p-6 hover:shadow-xl hover:border-teal-500/30 transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="p-2.5 bg-teal-50 dark:bg-teal-900/30 rounded-lg text-teal-600 dark:text-teal-400">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Commerce Manager</span>
-                  </div>
+                  <h3 className="font-poster text-xl text-slate-800 dark:text-slate-100 uppercase tracking-tight">Office & Design Tools</h3>
                 </div>
-              </div>
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-primary mb-4">Search Engine Optimization</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">On-Page SEO</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Off-Page SEO</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Technical SEO</span>
-                  </div>
-                  <div className="p-4 bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl hover:bg-primary/10 transition-all duration-300">
-                    <span className="text-secondary">Local SEO</span>
-                  </div>
+                <div className="flex flex-wrap gap-3">
+                  {['Microsoft Excel', 'Microsoft Word', 'PowerPoint', 'Adobe Illustrator', 'Canva', 'Notion', 'Notepad++', 'Figma', 'VS Code'].map(tool => (
+                    <span key={tool} className="px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 dark:bg-teal-900/10 text-slate-600 dark:text-teal-300/80 border border-slate-200 dark:border-teal-500/20 hover:border-teal-500 transition-all duration-300 cursor-default">
+                      {tool}
+                    </span>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </article>
@@ -482,7 +616,7 @@ Message: ${formData.message}`.trim()
               {/* Add more experience cards as needed */}
               <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl group animate-scale-in">
                 <h3 className="text-xl font-bold text-dark dark:text-light mb-1 font-display">
-                Founder & Entrepreneur
+                  Founder & Entrepreneur
                 </h3>
                 <p className="text-primary font-mono text-sm mb-2 group">
                   <span className="inline-block hover:animate-wave">  Organic Fruitopia • June 2023 - Present</span>
@@ -512,14 +646,14 @@ Message: ${formData.message}`.trim()
                   </li>
                 </ul>
               </div>
-              
+
             </div>
           </div>
 
 
-          
+
         </article>
-       
+
 
         {/* Projects Section */}
         <article id="projects" className="section bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80 py-20">
@@ -529,7 +663,7 @@ Message: ${formData.message}`.trim()
               <div className="relative">
                 {/* Timeline line */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary/20"></div>
-                
+
                 {/* Education */}
                 <div className="relative mb-32 animate-fade-in ">
                   <div className="flex items-center justify-center mb-8">
@@ -552,16 +686,16 @@ Message: ${formData.message}`.trim()
                         </p>
 
                         <p className="text-primary font-mono text-sm mb-2 group">
-                        <span className="inline-block hover:animate-wave">Thesis</span>
-                      </p>
-                      <h6 className="text-xl font-semibold text-dark dark:text-light mb-4 font-display group">
-                        <span className="inline-block hover:animate-wave">"The Role of Machine Learning in Increased Cyberbullying Claims"</span>
-                      </h6>
-                      {/* <a className="text-primary font-mono text-sm mb-2 group">
+                          <span className="inline-block hover:animate-wave">Thesis</span>
+                        </p>
+                        <h6 className="text-xl font-semibold text-dark dark:text-light mb-4 font-display group">
+                          <span className="inline-block hover:animate-wave">"The Role of Machine Learning in Increased Cyberbullying Claims"</span>
+                        </h6>
+                        {/* <a className="text-primary font-mono text-sm mb-2 group">
                         <span className="inline-block hover:animate-wave">Thesis</span>
                       </a> */}
-                      <a className='text-primary font-mono' href="http://dx.doi.org/10.13140/RG.2.2.30114.95689" target='_blank'>DOI:10.13140/RG.2.2.30114.95689</a>
-                        
+                        <a className='text-primary font-mono' href="http://dx.doi.org/10.13140/RG.2.2.30114.95689" target='_blank'>DOI:10.13140/RG.2.2.30114.95689</a>
+
                       </div>
                     </div>
 
@@ -569,7 +703,7 @@ Message: ${formData.message}`.trim()
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg flex items-center justify-center">
                           <div className="text-center p-6">
-                          <img src="/iiuclogo.png" alt="IIUC Logo" className="w-16 h-16 mx-auto mb-4" />
+                            <img src="/iiuclogo.png" alt="IIUC Logo" className="w-16 h-16 mx-auto mb-4" />
 
                             <h4 className="text-xl font-bold text-dark dark:text-light">IIUC</h4>
                             <p className="text-secondary">International Islamic University Chittagong</p>
@@ -660,9 +794,9 @@ Message: ${formData.message}`.trim()
                     <div className="order-1">
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg">
-                          <Image 
-                            src="/images/quran-for-ummah.png" 
-                            alt="Quran-For-Ummah - National STEAM Olympiad Finalist" 
+                          <Image
+                            src="/images/quran-for-ummah.png"
+                            alt="Quran-For-Ummah - National STEAM Olympiad Finalist"
                             fill
                             className="object-cover"
                           />
@@ -735,9 +869,9 @@ Message: ${formData.message}`.trim()
                     <div className="order-1 md:order-2">
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg">
-                          <Image 
-                            src="images/abacus-academy.png" 
-                            alt="Abacus Academy" 
+                          <Image
+                            src="images/abacus-academy.png"
+                            alt="Abacus Academy"
                             fill
                             className="object-cover"
                           />
@@ -785,7 +919,7 @@ Message: ${formData.message}`.trim()
                         <li className="group"><span className="inline-block hover:animate-wave">CSS</span></li>
                         <li className="group"><span className="inline-block hover:animate-wave">JavaScript</span></li>
                         <li className="group"><span className="inline-block hover:animate-wave">Bootstrap 5</span></li>
-                        
+
                       </ul>
                       <div className="flex gap-4 mt-4">
                         <a href="https://ziiziiisland.com/" target="_blank" rel="noopener noreferrer" className="text-dark dark:text-light hover:text-primary">
@@ -803,9 +937,9 @@ Message: ${formData.message}`.trim()
                     <div className="order-1">
                       <div className="relative">
                         <div className="w-full h-64 bg-dark-lighter rounded-lg overflow-hidden shadow-lg">
-                          <Image 
-                            src="images/ziizii-island.png" 
-                            alt="ZiiZii Island Website" 
+                          <Image
+                            src="images/ziizii-island.png"
+                            alt="ZiiZii Island Website"
                             fill
                             className="object-cover"
                           />
@@ -1003,7 +1137,7 @@ Message: ${formData.message}`.trim()
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      </div>
+                    </div>
                     <div>
                       <h3 className="text-xl font-bold text-dark dark:text-light group-hover:text-primary transition-colors">
                         SEO
@@ -1024,7 +1158,7 @@ Message: ${formData.message}`.trim()
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
-                      </div>
+                    </div>
                     <div>
                       <h3 className="text-xl font-bold text-dark dark:text-light group-hover:text-primary transition-colors">
                         Brand Growth Strategy
@@ -1045,7 +1179,7 @@ Message: ${formData.message}`.trim()
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
-                      </div>
+                    </div>
                     <div>
                       <h3 className="text-xl font-bold text-dark dark:text-light group-hover:text-primary transition-colors">
                         Project Management
@@ -1055,7 +1189,7 @@ Message: ${formData.message}`.trim()
                   </div>
                   <div className="w-full bg-dark/20 rounded-full h-2 mb-2">
                     <div className="bg-primary h-2 rounded-full w-4/5"></div>
-              </div>
+                  </div>
                   <p className="text-secondary text-sm">70% Complete</p>
                 </div>
               </div>
@@ -1088,9 +1222,9 @@ Message: ${formData.message}`.trim()
                       <div className="flex items-center text-secondary">
                         <span className="mr-2">🛠️</span>
                         <span>Full Stack Implementation</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
                   {/* Digital Marketing */}
                   <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
@@ -1105,14 +1239,14 @@ Message: ${formData.message}`.trim()
                       <div className="flex items-center text-secondary">
                         <span className="mr-2">🎯</span>
                         <span>Facebook Ads Management</span>
-                    </div>
+                      </div>
                       <div className="flex items-center text-secondary">
                         <span className="mr-2">🤖</span>
                         <span>Chatbot & Automation</span>
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Multitasking & Operations */}
                   <div className="bg-dark-lighter bg-white/80 dark:bg-dark-lighter/80 border border-secondary/30 shadow-md rounded-xl hover:shadow-xl p-6 rounded-lg group hover:transform hover:scale-105 transition-all duration-300 animate-scale-in">
                     <h4 className="text-xl font-bold text-dark dark:text-light mb-4 group-hover:text-primary transition-colors">
@@ -1221,7 +1355,7 @@ Message: ${formData.message}`.trim()
                 </div>
               </div>
 
-            
+
             </div>
           </div>
         </article>
@@ -1372,38 +1506,38 @@ Message: ${formData.message}`.trim()
               </div>
             </div>
 
- 
+
           </div>
-           {/* Facebook Ads Image Showcase */}
-           <section className="container my-12">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <img
-      src="/Analytics-1.png"
-      alt="Facebook Ad 1"
-      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
-    />
-    <img
-      src="/Analytics-2.png"
-      alt="Facebook Ad 2"
-      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
-    />
-    <img
-      src="/Analytics-3.png"
-      alt="Facebook Ad 3"
-      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
-    />
-    <img
-      src="/Analytics-4.jpg"
-      alt="Facebook Ad 4"
-      className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
-    />
-  </div>
-</section>
-  
+          {/* Facebook Ads Image Showcase */}
+          <section className="container my-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <img
+                src="/Analytics-1.png"
+                alt="Facebook Ad 1"
+                className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+              />
+              <img
+                src="/Analytics-2.png"
+                alt="Facebook Ad 2"
+                className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+              />
+              <img
+                src="/Analytics-3.png"
+                alt="Facebook Ad 3"
+                className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+              />
+              <img
+                src="/Analytics-4.jpg"
+                alt="Facebook Ad 4"
+                className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-md"
+              />
+            </div>
+          </section>
+
 
 
         </article>
-        
+
 
         {/* Contact Section */}
         <article id="contact" className="pt-16 md:pt-24 pb-12 bg-gradient-to-br from-primary/10 via-secondary/10 to-light/80 dark:from-primary/20 dark:via-secondary/20 dark:to-dark/80">
@@ -1416,43 +1550,43 @@ Message: ${formData.message}`.trim()
                     <span className="inline-block hover:animate-wave">I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</span>
                   </p>
                   <div className="space-y-4">
-                    <a 
-                      href="mailto:emonismail44@gmail.com" 
+                    <a
+                      href="mailto:emonismail44@gmail.com"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
                       <EnvelopeIcon className="w-5 h-5 mr-3" />
                       <span className="inline-block hover:animate-wave">emonismail44@gmail.com</span>
                     </a>
-                    <a 
+                    <a
                       href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/" target="_blank"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
-                     <FaLinkedin className="w-5 h-5 mr-3 text-blue-600" />
+                      <FaLinkedin className="w-5 h-5 mr-3 text-blue-600" />
                       <span className="inline-block hover:animate-wave">Linkdin</span>
                     </a>
-                    <a 
+                    <a
                       href="https://www.facebook.com/ismail.emon.180" target="_blank"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
-                    <FaFacebook className="w-5 h-5 mr-3 text-blue-600" />
+                      <FaFacebook className="w-5 h-5 mr-3 text-blue-600" />
                       <span className="inline-block hover:animate-wave">Facebook</span>
                     </a>
-                    <a 
+                    <a
                       href="https://github.com/emon-ismail" target="_blank"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
-                    <FaGithub className="w-5 h-5 mr-3 text-blue-600" />
+                      <FaGithub className="w-5 h-5 mr-3 text-blue-600" />
                       <span className="inline-block hover:animate-wave">Github</span>
                     </a>
-                    <a 
+                    <a
                       href="https://www.behance.net/emon44" target="_blank"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
-                    <FaBehance className="w-5 h-5 mr-3 text-blue-600" />
+                      <FaBehance className="w-5 h-5 mr-3 text-blue-600" />
                       <span className="inline-block hover:animate-wave">Behance</span>
                     </a>
-                    <a 
-                      href="tel:+8801628692798" 
+                    <a
+                      href="tel:+8801628692798"
                       className="flex items-center text-secondary hover:text-primary transition-colors group"
                     >
                       <PhoneIcon className="w-5 h-5 mr-3" />
@@ -1461,12 +1595,12 @@ Message: ${formData.message}`.trim()
                     <div className="flex items-center text-secondary group">
                       <MapPinIcon className="w-5 h-5 mr-3" />
                       <span className="inline-block hover:animate-wave">Chattogram, Bangladesh</span>
-                  </div>
+                    </div>
                   </div>
                 </div>
                 <div className="backdrop-blur-lg bg-white/70 dark:bg-dark-lighter/70 border border-secondary/30 shadow-xl p-8 rounded-2xl">
                   <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div>
+                    <div>
                       <label htmlFor="name" className="block text-sm font-medium text-secondary mb-1">Name <span className="text-red-500">*</span></label>
                       <input
                         type="text"
@@ -1478,7 +1612,7 @@ Message: ${formData.message}`.trim()
                         placeholder="Your name"
                         className="w-full px-4 py-2 bg-light dark:bg-dark border border-secondary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       />
-                  </div>
+                    </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-secondary mb-1">Email <span className="text-red-500">*</span></label>
                       <input
@@ -1491,7 +1625,7 @@ Message: ${formData.message}`.trim()
                         placeholder="your.email@example.com"
                         className="w-full px-4 py-2 bg-light dark:bg-dark border border-secondary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       />
-                </div>
+                    </div>
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-secondary mb-1">Message <span className="text-red-500">*</span></label>
                       <textarea
@@ -1504,22 +1638,22 @@ Message: ${formData.message}`.trim()
                         placeholder="Your message here..."
                         className="w-full px-4 py-2 bg-light dark:bg-dark border border-secondary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                       ></textarea>
-                </div>
-                    <button 
-                      type="submit" 
+                    </div>
+                    <button
+                      type="submit"
                       className="btn btn-primary w-full shadow-md hover:shadow-lg transition-all duration-300"
                       disabled={loading}
                     >
                       {loading ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>
-              </div>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
-        
+
       </main>
     </div>
   )

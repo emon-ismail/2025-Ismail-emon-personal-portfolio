@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --primary: #14b8a6;       /* Teal */
+  --primary: #14b8a6;
+  /* Teal */
   --primary-dark: #0f766e;
   --primary-light: #5eead4;
-  --secondary: #64748b;      /* Slate Blue */
+  --secondary: #64748b;
+  /* Slate Blue */
   --secondary-dark: #475569;
   --secondary-light: #cbd5e1;
   --dark: #0f172a;
@@ -19,10 +21,12 @@
 }
 
 .dark {
-  --primary: #5eead4;       /* Lighter Teal */
+  --primary: #5eead4;
+  /* Lighter Teal */
   --primary-dark: #14b8a6;
   --primary-light: #99f6e4;
-  --secondary: #cbd5e1;      /* Lighter Slate Blue */
+  --secondary: #cbd5e1;
+  /* Lighter Slate Blue */
   --secondary-dark: #64748b;
   --secondary-light: #f1f5f9;
   --dark: #0f172a;
@@ -37,22 +41,26 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Add padding for fixed header */
-    font-size: 16px; /* Base font size */
+    scroll-padding-top: 80px;
+    /* Add padding for fixed header */
+    font-size: 16px;
+    /* Base font size */
     overflow-y: scroll;
   }
-  
+
   @media (max-width: 640px) {
     html {
-      font-size: 14px; /* Smaller font size for mobile */
+      font-size: 14px;
+      /* Smaller font size for mobile */
     }
   }
-  
+
   /* Smooth Scroll Performance */
   * {
-    scroll-margin-top: 80px; /* Add margin for fixed header */
+    scroll-margin-top: 80px;
+    /* Add margin for fixed header */
   }
-  
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
@@ -83,14 +91,21 @@
   .dark ::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
   }
-  
+
   body {
     @apply bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-dark dark:text-light transition-colors duration-300 antialiased;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
     perspective: 1000px;
   }
 
-  h1, h2, h3, h4, h5, h6, span, a {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a {
     @apply transition-all duration-300;
     transform-style: preserve-3d;
     transform: translateZ(0);
@@ -112,33 +127,33 @@
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .btn {
     @apply px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base;
   }
-  
+
   .btn-primary {
     @apply bg-primary text-light;
     transform-style: preserve-3d;
     transform: translateZ(0);
   }
-  
+
   .btn-primary:hover {
     /* @apply bg-[var(--primary-dark)] shadow-lg;
     transform: translateZ(10px) rotateX(5deg) rotateY(5deg); */
   }
-  
+
   .btn-outline {
     @apply border-2 border-primary text-primary;
     transform-style: preserve-3d;
     transform: translateZ(0);
   }
-  
+
   .btn-outline:hover {
     @apply bg-primary text-light;
     transform: translateZ(10px) rotateX(-5deg) rotateY(-5deg);
   }
-  
+
   .section {
     @apply py-16 md:py-24;
   }
@@ -172,7 +187,7 @@
   }
 
   .card {
-    @apply bg-white dark:bg-dark-lighter p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-white dark:bg-dark-lighter p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-transparent hover:border-teal-500/20;
     transform-style: preserve-3d;
     transform: translateZ(0);
   }
@@ -191,7 +206,7 @@
   }
 
   .whatsapp-float a {
-    @apply  flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-[var(--whatsapp)] text-white shadow-lg;
+    @apply flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-[var(--whatsapp)] text-white shadow-lg;
     animation: whatsappPulse 2s ease-in-out infinite;
     transform-origin: center;
     will-change: transform;
@@ -279,7 +294,7 @@
   .no-bottom-padding {
     @apply pb-0 mb-0;
   }
-} 
+}
 
 @layer utilities {
   .text-primary {
@@ -335,6 +350,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -345,6 +361,7 @@
     transform: scale(0.95);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -352,48 +369,64 @@
 }
 
 @keyframes wave {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   25% {
     transform: translateY(-2px);
   }
+
   50% {
     transform: translateY(0);
   }
+
   75% {
     transform: translateY(-1px);
   }
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) translateZ(0);
   }
+
   50% {
     transform: translateY(-5px) translateZ(5px);
   }
 }
 
 @keyframes textWave {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   }
+
   25% {
     transform: translateZ(8px) rotateX(4deg) rotateY(4deg);
   }
+
   50% {
     transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   }
+
   75% {
     transform: translateZ(-4px) rotateX(-4deg) rotateY(-4deg);
   }
 }
 
 @keyframes whatsappPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -404,6 +437,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

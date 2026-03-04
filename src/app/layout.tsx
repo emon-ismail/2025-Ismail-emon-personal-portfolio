@@ -1,4 +1,4 @@
-import { Inter, Poppins, Fira_Code } from 'next/font/google'
+import { Inter, Poppins, Fira_Code, Oswald, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import type { Metadata } from 'next'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -21,6 +21,18 @@ const firaCode = Fira_Code({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-fira-code',
+})
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-oswald',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
 })
 
 export const metadata: Metadata = {
@@ -80,7 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${firaCode.variable} scroll-smooth`}
+      className={`${inter.variable} ${poppins.variable} ${firaCode.variable} ${oswald.variable} ${playfair.variable} scroll-smooth`}
     >
       <head>
         <meta

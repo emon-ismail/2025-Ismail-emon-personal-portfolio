@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowUp } from 'lucide-react'
+import { FaArrowUp } from 'react-icons/fa'
 
 export default function ScrollToTopButton() {
   const scrollToTop = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -10,13 +10,13 @@ export default function ScrollToTopButton() {
 
   return (
     <button
-    onClick={scrollToTop}
-    aria-label="Scroll to top"
-    className="sticky bottom-16 left-full z-[99999] w-12 h-12 rounded-full bg-[var(--primary)] text-white flex items-center justify-center shadow-lg hover:bg-[var(--primary-dark)] transition-all"
-  >
-    <ArrowUp className="w-5 h-5" />
-  </button>
-  
-  
+      onClick={scrollToTop}
+      aria-label="Scroll to top"
+      className="sticky bottom-16 left-full z-[99999] w-12 h-12 rounded-full bg-[var(--primary)] text-white flex items-center justify-center shadow-lg hover:bg-[var(--primary-dark)] transition-all"
+    >
+      <FaArrowUp className="w-5 h-5" />
+    </button>
+
+
   )
 }
