@@ -95,7 +95,6 @@
   body {
     @apply bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-dark dark:text-light transition-colors duration-300 antialiased;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
-    perspective: 1000px;
   }
 
   h1,
@@ -107,8 +106,6 @@
   span,
   a {
     @apply transition-all duration-300;
-    transform-style: preserve-3d;
-    transform: translateZ(0);
   }
 
   h1:hover,
@@ -119,7 +116,7 @@
   h6:hover,
   span:hover,
   a:hover {
-    animation: textWave 1s ease-in-out;
+    @apply animate-[wave_1s_ease-in-out];
   }
 }
 
@@ -198,11 +195,17 @@
   }
 
   .whatsapp-float {
-    position: sticky;
-    bottom: 3rem;
-    left: 3rem;
-    z-index: 40;
-    padding: 1rem;
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    z-index: 9999;
+  }
+
+  @media (min-width: 768px) {
+    .whatsapp-float {
+      bottom: 7.5rem;
+      right: 2rem;
+    }
   }
 
   .whatsapp-float a {

@@ -2,12 +2,18 @@ import React from 'react';
 
 const WhatsAppButton = () => {
   return (
-    <div className="whatsapp-float">
+    <div className="whatsapp-float group flex items-center">
+      {/* Tooltip */}
+      <span className="absolute right-full mr-4 bg-white dark:bg-slate-800 text-slate-800 dark:text-white text-sm font-medium px-4 py-2 rounded-xl shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-slate-100 dark:border-slate-700">
+        Chat with me!
+      </span>
+
       <a
         href="https://wa.me/8801628692798"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        className="relative"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

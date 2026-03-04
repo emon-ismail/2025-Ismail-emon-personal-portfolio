@@ -134,9 +134,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
         <WhatsAppButton />
         <ScrollToTopButton />
+        {children}
       </body>
     </html>
   )
