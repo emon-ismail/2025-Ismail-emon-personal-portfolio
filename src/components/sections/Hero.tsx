@@ -1,11 +1,14 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowDownIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowDownIcon, PlayIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation'
 
 export default function Hero() {
+    const [isVideoOpen, setIsVideoOpen] = useState(false)
+
     return (
         <article id="hero" className="min-h-screen relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300 flex items-center justify-center overflow-hidden pt-28 pb-12 md:py-0">
             {/* Background Elements */}
@@ -60,7 +63,7 @@ export default function Hero() {
                             {/* Decorative Ring */}
                             <div className="absolute inset-[-12px] border border-slate-300 dark:border-slate-700 rounded-full z-0 animate-[spin_20s_linear_infinite]"></div>
 
-                            <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+                            <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-inner">
                                 <Image
                                     src="/ismail-emon.jpg"
                                     alt="Mohammad Ismail Emon"
@@ -68,8 +71,27 @@ export default function Hero() {
                                     className="object-cover hover:scale-110 transition-transform duration-700"
                                     priority
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none"></div>
                             </div>
+
+                            {/* Premium Floating Play Button - Outside overflow to prevent clipping */}
+                            <motion.button
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => setIsVideoOpen(true)}
+                                className="absolute -bottom-6 left-1/2 -translate-x-1/2 group flex items-center gap-2 bg-teal-500 hover:bg-white text-slate-950 px-5 py-3 rounded-full z-30 shadow-[0_20px_40px_-10px_rgba(20,184,166,0.6)] transition-all duration-300 border-4 border-white dark:border-slate-950"
+                            >
+                                <div className="relative">
+                                    <div className="absolute -inset-2 bg-teal-400/30 rounded-full animate-ping opacity-0 group-hover:opacity-100" />
+                                    <div className="w-8 h-8 bg-slate-950 rounded-full flex items-center justify-center text-teal-400 group-hover:text-white transition-colors">
+                                        <PlayIcon className="w-5 h-5 fill-current ml-0.5" />
+                                    </div>
+                                </div>
+                                <span className="font-bold uppercase tracking-[0.2em] text-[10px] pr-1">Watch Intro</span>
+                            </motion.button>
                         </motion.div>
 
                         {/* 4. Right Role Text & Buttons (Desktop: Left Aligned to Image, Mobile: Center) */}
@@ -126,6 +148,42 @@ export default function Hero() {
             >
                 <ArrowDownIcon className="w-8 h-8" />
             </motion.div>
+
+            {/* Video Modal */}
+            <AnimatePresence>
+                {isVideoOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-slate-950/90 backdrop-blur-xl"
+                    >
+                        <motion.button
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            onClick={() => setIsVideoOpen(false)}
+                            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2"
+                        >
+                            <XMarkIcon className="w-10 h-10" />
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="w-full max-w-[400px] aspect-[9/16] md:max-w-[450px] bg-black rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 relative"
+                        >
+                            <iframe
+                                className="w-full h-full"
+                                src="https://www.youtube.com/embed/UnVjVB7BzRg?autoplay=1"
+                                title="Mohammad Ismail Emon - Brand Story"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </article>
     )
 }
