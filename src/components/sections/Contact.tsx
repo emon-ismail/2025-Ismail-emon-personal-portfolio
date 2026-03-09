@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import { FaBehance, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa"
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { toast } from 'react-toastify'
+
+import { db } from '@/lib/firebase'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 export default function Contact() {
     const [loading, setLoading] = useState(false)
@@ -39,50 +41,32 @@ export default function Contact() {
 
         setLoading(true)
         try {
-            const response = await emailjs.send(
-                'service_luzs8ns',
-                'template_m0qhmfg',
-                {
-                    from_name: formData.name,
-                    from_email: formData.email,
-                    subject: 'Contact Form Message',
-                    message: formData.message,
-                    phone: '',
-                    company: '',
-                    to_name: 'Mohammad Ismail Emon',
-                    reply_to: formData.email,
-                },
-                'ZGVGuwI76m9UvhoWk'
-            )
+            // Save to Firebase Firestore
+            await addDoc(collection(db, 'contacts'), {
+                ...formData,
+                createdAt: serverTimestamp(),
+            })
 
-            if (response.status === 200) {
-                toast.success('Message sent successfully!', {
-                    position: 'top-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark',
-                })
-            } else {
-                throw new Error(`Unexpected response status: ${response.status}`)
-            }
+            toast.success('Message sent! I will get back to you soon.', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
+
+            // Reset form
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            })
         } catch (error) {
-            console.error('EmailJS Error Details:', error)
-
-            // Fallback to mailto
-            const subject = `Contact Form Message from ${formData.name}`
-            const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Message: ${formData.message}`.trim()
-
-            const mailtoLink = `mailto:emonismail44@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-            window.location.href = mailtoLink
-
-            toast.info('Opening email client...', {
+            console.error('Firebase Submission Error:', error)
+            toast.error('Failed to send message. Please try again later.', {
                 position: 'top-right',
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -93,11 +77,6 @@ Message: ${formData.message}`.trim()
                 theme: 'dark',
             })
         } finally {
-            setFormData({
-                name: '',
-                email: '',
-                message: ''
-            })
             setLoading(false)
         }
     }
