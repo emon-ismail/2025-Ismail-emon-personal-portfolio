@@ -1,60 +1,34 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { db } from '@/lib/firebase'
+import { collection, query, orderBy, onSnapshot } from 'firebase/firestore'
 import { motion } from 'framer-motion'
 
+interface Certificate {
+    id: string
+    title: string
+    issuer: string
+    desc: string
+    img: string
+    tag: string
+}
+
 export default function Certificates() {
-    const certifications = [
-        {
-            title: "STEAM Olympiad Finalist",
-            issuer: "National STEAM Olympiad",
-            desc: "5th Place in National Competition",
-            img: "/certificate/STEAM-OLYMPIAD-FINALIST.jpg",
-            tag: "National Honor"
-        },
-        {
-            title: "NASA Space Apps",
-            issuer: "NASA",
-            desc: "Virtual Round Selection",
-            img: "/certificate/NASA-Space-Apps-Challenge-1.png",
-            tag: "Global Competition"
-        },
-        {
-            title: "SEO Certification",
-            issuer: "Advanced SEO Hub",
-            desc: "Search Engine Optimization Mastery",
-            img: "/certificate/Mohammad-Ismail-Emon-Seo_Certificate.jpg",
-            tag: "Professional"
-        },
-        {
-            title: "Meta Ads Mastery",
-            issuer: "Meta (Facebook)",
-            desc: "Advertising & Campaign Management",
-            img: "/certificate/meta-ads.jpeg",
-            tag: "Professional"
-        },
-        {
-            title: "Full Stack Development",
-            issuer: "Web Development Hub",
-            desc: "Full Stack Implementation",
-            img: "/certificate/Web-development.jpeg",
-            tag: "Engineering"
-        },
-        {
-            title: "Chemistry Olympiad",
-            issuer: "Bangladesh Chemistry Society",
-            desc: "Preliminary Round Qualifier",
-            img: "/certificate/chemistry-olympiad.jpg",
-            tag: "STEM Honor"
-        }
-    ]
+    const [certificates, setCertificates] = useState<Certificate[]>([])
+
+    useEffect(() => {
+        const unsub = onSnapshot(query(collection(db, 'certificates'), orderBy('createdAt', 'desc')), (snapshot) => {
+            setCertificates(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Certificate)))
+        })
+        return () => unsub()
+    }, [])
 
     return (
         <article id="certificate" className="relative py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
-            {/* Background decoration */}
             <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-teal-400/5 dark:bg-teal-500/5 rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
             <div className="container relative z-10 px-4 mx-auto max-w-6xl">
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -68,9 +42,9 @@ export default function Certificates() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {certifications.map((cert, i) => (
+                    {certificates.map((cert, i) => (
                         <motion.div
-                            key={i}
+                            key={cert.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -93,6 +67,11 @@ export default function Certificates() {
                             </div>
                         </motion.div>
                     ))}
+                    {certificates.length === 0 && (
+                        <div className="col-span-full text-center py-20 bg-white/50 dark:bg-slate-800/20 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-[2rem]">
+                            <p className="text-slate-400 font-mono text-sm uppercase italic">Certification list is being updated...</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </article>

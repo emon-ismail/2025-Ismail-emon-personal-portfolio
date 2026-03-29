@@ -1,15 +1,35 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { db } from '@/lib/firebase'
+import { collection, query, orderBy, onSnapshot } from 'firebase/firestore'
 import { motion } from 'framer-motion'
 
+interface Video {
+    id: string
+    title: string
+    url: string
+    type: '16:9' | '9:16'
+}
+
 export default function VideoGallery() {
+    const [videos, setVideos] = useState<Video[]>([])
+
+    useEffect(() => {
+        const unsub = onSnapshot(query(collection(db, 'videos'), orderBy('createdAt', 'desc')), (snapshot) => {
+            setVideos(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Video)))
+        })
+        return () => unsub()
+    }, [])
+
+    const landscapeVideos = videos.filter(v => v.type === '16:9')
+    const portraitVideos = videos.filter(v => v.type === '9:16')
+
     return (
         <article id="problem-solving" className="relative py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
-            {/* Background decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal-400/10 dark:bg-teal-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
             <div className="container relative z-10 px-4 mx-auto max-w-7xl">
-                {/* Section header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -22,31 +42,37 @@ export default function VideoGallery() {
                     <div className="mx-auto mt-4 w-16 h-1 bg-teal-500 rounded-full" />
                 </motion.div>
 
-                {/* 2-column layout: left stacks video + channel, right has Reels */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="flex flex-col gap-6">
-                        {/* 16:9 Video */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
-                            <div className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-[2.5rem] p-4 shadow-2xl hover:border-teal-500/30 transition-all duration-500">
-                                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-inner bg-slate-900">
-                                    <iframe
-                                        className="absolute inset-0 w-full h-full"
-                                        src="https://www.youtube.com/embed/UnVjVB7BzRg?si=3Y8F-u_GwnFprAa0"
-                                        title="YouTube video player"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerPolicy="strict-origin-when-cross-origin"
-                                        allowFullScreen
-                                    ></iframe>
+                        {landscapeVideos.length > 0 ? landscapeVideos.map((video, idx) => (
+                            <motion.div
+                                key={video.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="group"
+                            >
+                                <div className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-[2.5rem] p-4 shadow-2xl hover:border-teal-500/30 transition-all duration-500">
+                                    <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-inner bg-slate-900">
+                                        <iframe
+                                            className="absolute inset-0 w-full h-full"
+                                            src={video.url}
+                                            title={video.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <h3 className="mt-4 px-2 font-poster text-slate-800 dark:text-slate-200 uppercase text-sm tracking-tight">{video.title}</h3>
                                 </div>
+                            </motion.div>
+                        )) : (
+                            <div className="bg-white/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700 p-12 rounded-[2.5rem] text-center">
+                                <p className="text-slate-400 font-mono text-xs uppercase">No landscape videos yet</p>
                             </div>
-                        </motion.div>
+                        )}
 
-                        {/* Channel Link Card */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -73,27 +99,36 @@ export default function VideoGallery() {
                         </motion.div>
                     </div>
 
-                    {/* Reels (9:16) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="group"
-                    >
-                        <div className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-[2.5rem] p-4 shadow-2xl hover:border-teal-500/30 transition-all duration-500 h-full flex flex-col items-center">
-                            <div className="relative aspect-[9/16] w-full max-w-[280px] rounded-2xl overflow-hidden shadow-inner bg-slate-900">
-                                <iframe
-                                    className="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/9vIo183jceg"
-                                    title="Quick Tips Short"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
-                                    allowFullScreen
-                                ></iframe>
+                    <div className="flex flex-col gap-6">
+                        {portraitVideos.length > 0 ? portraitVideos.map((video, idx) => (
+                            <motion.div
+                                key={video.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 + (idx * 0.1) }}
+                                className="group"
+                            >
+                                <div className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 backdrop-blur-md rounded-[2.5rem] p-4 shadow-2xl hover:border-teal-500/30 transition-all duration-500 h-full flex flex-col items-center">
+                                    <div className="relative aspect-[9/16] w-full max-w-[280px] rounded-2xl overflow-hidden shadow-inner bg-slate-900">
+                                        <iframe
+                                            className="absolute inset-0 w-full h-full"
+                                            src={video.url}
+                                            title={video.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <h3 className="mt-4 font-poster text-slate-800 dark:text-slate-200 uppercase text-sm tracking-tight">{video.title}</h3>
+                                </div>
+                            </motion.div>
+                        )) : (
+                            <div className="bg-white/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700 p-12 rounded-[2.5rem] text-center h-full flex items-center justify-center">
+                                <p className="text-slate-400 font-mono text-xs uppercase">No portrait videos yet</p>
                             </div>
-                        </div>
-                    </motion.div>
+                        )}
+                    </div>
                 </div>
             </div>
         </article>
