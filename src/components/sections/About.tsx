@@ -1,11 +1,34 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { db } from '@/lib/firebase'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { AcademicCapIcon, BriefcaseIcon, TrophyIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import type { ReactNode } from 'react'
 
 export default function About() {
+    const [aboutData, setAboutData] = useState({
+        aboutText1: "I'm a multidisciplinary professional blending Digital Operations, Marketing Automation, SEO, and Software Engineering.",
+        aboutText2: "I drive measurable growth through data-driven campaigns, automation systems, and front-end engineering.",
+        cvUrl: "#",
+        linkedinUrl: "#",
+        location: 'Chittagong, Bangladesh',
+        degree: 'BSc in CSE — IIUC',
+        company: 'Oasis Outfit · ZiiZii Island',
+        achievement: 'STEAM Olympiad Top 5'
+    })
+
+    useEffect(() => {
+        const unsub = onSnapshot(doc(db, 'settings', 'about'), (docSnap) => {
+            if (docSnap.exists()) {
+                setAboutData(docSnap.data() as any)
+            }
+        })
+        return () => unsub()
+    }, [])
+
     return (
         <article id="about" className="relative py-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
             {/* Background decoration */}
@@ -21,7 +44,7 @@ export default function About() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <p className="text-teal-600 dark:text-teal-400 font-mono text-sm uppercase tracking-widest mb-2">Get to know me</p>
+                    <p className="text-teal-600 dark:text-teal-400 font-mono text-sm uppercase tracking-widest mb-2 font-semibold">Get to know me</p>
                     <h2 className="font-poster text-4xl md:text-6xl text-slate-900 dark:text-slate-100 uppercase tracking-tight">About Me</h2>
                     <div className="mx-auto mt-4 w-16 h-1 bg-teal-500 rounded-full" />
                 </motion.div>
@@ -53,11 +76,6 @@ export default function About() {
                             <span className="text-3xl font-poster text-teal-500">3+</span>
                             <span className="text-sm text-slate-600 dark:text-slate-300 font-medium leading-tight">Years<br />Experience</span>
                         </div>
-                        {/* STEAM badge */}
-                        <div className="absolute bottom-20 -left-4 bg-teal-600 text-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2">
-                            <TrophyIcon className="w-5 h-5 flex-shrink-0" />
-                            <span className="text-xs font-bold leading-tight">National STEAM<br />Olympiad Finalist</span>
-                        </div>
                     </motion.div>
 
                     {/* RIGHT — Content */}
@@ -78,19 +96,19 @@ export default function About() {
                         </div>
 
                         <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                            I&apos;m a multidisciplinary professional blending <strong className="text-slate-900 dark:text-white">Digital Operations</strong>, <strong className="text-slate-900 dark:text-white">Marketing Automation</strong>, <strong className="text-slate-900 dark:text-white">SEO</strong>, and <strong className="text-slate-900 dark:text-white">Software Engineering</strong>. At <span className="text-teal-600 dark:text-teal-400 font-semibold">Oasis Outfit (ZiiZii Island)</span>, I drive measurable growth through data-driven campaigns, automation systems, and front-end engineering.
+                            {aboutData.aboutText1}
                         </p>
                         <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-                            I hold a <strong className="text-slate-900 dark:text-white">BSc in Computer Science &amp; Engineering</strong> from International Islamic University Chittagong (IIUC), and I was recognised as a <strong className="text-slate-900 dark:text-white">National STEAM Olympiad Finalist</strong> (Top 5 Nationally) for my award-winning Quran-For-Ummah platform.
+                            {aboutData.aboutText2}
                         </p>
 
                         {/* Highlights grid */}
                         <div className="grid grid-cols-2 gap-3 mt-2">
                             {([
-                                { icon: <MapPinIcon className="w-5 h-5" />, label: 'Location', value: 'Chittagong, Bangladesh' },
-                                { icon: <AcademicCapIcon className="w-5 h-5" />, label: 'Degree', value: 'BSc in CSE — IIUC' },
-                                { icon: <BriefcaseIcon className="w-5 h-5" />, label: 'Company', value: 'Oasis Outfit · ZiiZii Island' },
-                                { icon: <TrophyIcon className="w-5 h-5" />, label: 'Achievement', value: 'STEAM Olympiad Top 5' },
+                                { icon: <MapPinIcon className="w-5 h-5" />, label: 'Location', value: aboutData.location },
+                                { icon: <AcademicCapIcon className="w-5 h-5" />, label: 'Degree', value: aboutData.degree },
+                                { icon: <BriefcaseIcon className="w-5 h-5" />, label: 'Company', value: aboutData.company },
+                                { icon: <TrophyIcon className="w-5 h-5" />, label: 'Achievement', value: aboutData.achievement },
                             ] as { icon: ReactNode; label: string; value: string }[]).map(({ icon, label, value }) => (
                                 <div key={label} className="bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 hover:border-teal-400 hover:shadow-md transition-all duration-300 group">
                                     <span className="text-teal-500 dark:text-teal-400">{icon}</span>
@@ -100,19 +118,10 @@ export default function About() {
                             ))}
                         </div>
 
-                        {/* Role pills */}
-                        <div className="flex flex-wrap gap-2">
-                            {['Digital Ops Manager', 'Marketing Automation', 'SEO Engineer', 'Analytics Specialist', 'Software Engineer', 'STEAM Finalist'].map(role => (
-                                <span key={role} className="px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-700">
-                                    {role}
-                                </span>
-                            ))}
-                        </div>
-
                         {/* CTA buttons */}
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 pt-4">
                             <a
-                                href="https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing"
+                                href={aboutData.cvUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-7 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-bold shadow-lg shadow-teal-500/20 transition-all hover:-translate-y-1"
@@ -120,7 +129,7 @@ export default function About() {
                                 Download CV
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/"
+                                href={aboutData.linkedinUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-7 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-bold hover:border-teal-500 transition-all hover:-translate-y-1"

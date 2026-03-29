@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { db, serverTimestamp } from '@/lib/firebase'
-import { collection, query, orderBy, onSnapshot, deleteDoc, doc, addDoc } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, deleteDoc, doc, addDoc, setDoc } from 'firebase/firestore'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TrashIcon } from '@heroicons/react/24/outline'
 
@@ -35,6 +35,18 @@ export default function AdminDashboard() {
     const seedDatabase = async () => {
         if (!window.confirm('This will seed the database with initial portfolio data. Continue?')) return;
         try {
+            // Seed About
+            await setDoc(doc(db, 'settings', 'about'), {
+                aboutText1: "I'm a multidisciplinary professional blending Digital Operations, Marketing Automation, SEO, and Software Engineering. At Oasis Outfit (ZiiZii Island), I drive measurable growth through data-driven campaigns, automation systems, and front-end engineering.",
+                aboutText2: "I hold a BSc in Computer Science & Engineering from International Islamic University Chittagong (IIUC), and I was recognised as a National STEAM Olympiad Finalist (Top 5 Nationally) for my award-winning Quran-For-Ummah platform.",
+                cvUrl: "https://drive.google.com/file/d/19Ey7TylruEvj3rAnYWI0GRETRYDkhQhy/view?usp=sharing",
+                linkedinUrl: "https://www.linkedin.com/in/mohammad-ismail-emon-b40190220/",
+                location: 'Chittagong, Bangladesh',
+                degree: 'BSc in CSE — IIUC',
+                company: 'Oasis Outfit · ZiiZii Island',
+                achievement: 'STEAM Olympiad Top 5'
+            });
+
             // Seed Education
             await addDoc(collection(db, 'education'), { degree: "Bachelor of Computer Science & Engineering", institution: "IIUC", period: "2019 – 2024", logo: "/iiuclogo.png", thesisTitle: "The Role of Machine Learning in Increased Cyberbullying Claims", thesisDoi: "10.13140/RG.2.2.30114.95689", createdAt: serverTimestamp() });
             // Seed Projects
