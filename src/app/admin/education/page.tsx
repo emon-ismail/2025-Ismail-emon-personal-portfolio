@@ -101,7 +101,7 @@ export default function EducationAdmin() {
                         <input type="file" required={!editItem} onChange={e => setLogoFile(e.target.files?.[0] || null)} className="text-sm bg-slate-800 p-2 rounded-xl" />
                     </div>
                     <input placeholder="Thesis Title (Optional)" className="bg-slate-800 border-slate-700 rounded-xl p-3 md:col-span-2" value={formData.thesisTitle} onChange={e => setFormData({ ...formData, thesisTitle: e.target.value })} />
-                    <input placeholder="Thesis DOI (Optional)" className="bg-slate-800 border-slate-700 rounded-xl p-3 md:col-span-2" value={formData.thesisDoi} onChange={e => setFormData({ ...formData, thesisDoi: e.target.value })} />
+                    <input placeholder="Thesis DOI or Full Link (e.g., ResearchGate URL) (Optional)" className="bg-slate-800 border-slate-700 rounded-xl p-3 md:col-span-2" value={formData.thesisDoi} onChange={e => setFormData({ ...formData, thesisDoi: e.target.value })} />
                     <button disabled={loading} className="md:col-span-2 bg-teal-500 text-slate-900 py-3 rounded-xl font-bold uppercase">{loading ? 'Saving...' : 'Save Education'}</button>
                 </motion.form>
             )}

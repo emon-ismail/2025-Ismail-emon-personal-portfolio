@@ -87,12 +87,12 @@ export default function Projects() {
                                             <h4 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3 leading-snug">"{edu.thesisTitle}"</h4>
                                             {edu.thesisDoi && (
                                                 <a
-                                                    href={`https://doi-org.translate.goog/${edu.thesisDoi}`}
+                                                    href={edu.thesisDoi.startsWith('http') ? edu.thesisDoi : `https://doi.org/${edu.thesisDoi}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="inline-flex items-center gap-2 text-sm text-teal-600 dark:text-teal-400 hover:underline font-mono"
                                                 >
-                                                    DOI: {edu.thesisDoi}
+                                                    {edu.thesisDoi.startsWith('http') ? 'View Thesis' : `DOI: ${edu.thesisDoi}`}
                                                     <ArrowUpRightIcon className="w-3 h-3" />
                                                 </a>
                                             )}
